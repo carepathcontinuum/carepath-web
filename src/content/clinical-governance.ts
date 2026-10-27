@@ -7,8 +7,10 @@ import photoSmall from '@/assets/images/nurse-escalation-800.webp'
 
 export const intro = {
   title: 'Clinical Governance',
+  // Shortened on request (2026-10-27). Live-site original: "CarePath™ operates within defined clinical governance
+  // frameworks, ensuring care plans are executed safely and consistently after patients leave the hospital or clinic."
   subtitle:
-    'CarePath™ operates within defined clinical governance frameworks, ensuring care plans are executed safely and consistently after patients leave the hospital or clinic.',
+    'Defined clinical frameworks that keep care plans safe and consistent after patients leave the hospital.',
   // Same photo as How It Works step 4
   image: {
     src: photoLarge,

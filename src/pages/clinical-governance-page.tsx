@@ -7,19 +7,12 @@ import { PageHeader } from '@/components/sections/page-header'
 import { flow, intro, pillars } from '@/content/clinical-governance'
 
 export function ClinicalGovernancePage() {
-  const [before, after] = intro.subtitle.split('™')
   return (
     <>
       <PageTitle title="Clinical Governance" />
       <PageHeader
         title={intro.title}
-        subtitle={
-          <>
-            {before}
-            <sup>™</sup>
-            {after}
-          </>
-        }
+        subtitle={intro.subtitle}
         image={intro.image}
       />
 
