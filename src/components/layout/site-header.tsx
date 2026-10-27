@@ -17,6 +17,7 @@ const OVERLAY_ROUTES = [
   '/how-it-works',
   '/terms-and-conditions',
   '/privacy-policy',
+  '/contact',
 ]
 
 function useScrolled(threshold = 8) {
