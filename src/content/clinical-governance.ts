@@ -22,14 +22,18 @@ export const intro = {
 export const pillars = [
   {
     title: 'Nurse-Led Oversight',
+    /** Phrase inside `body` picked out in Montserrat so the eye catches the idea first */
+    key: 'nurse-led clinical oversight',
     body: 'CarePath operates under nurse-led clinical oversight, ensuring standardized monitoring, timely assessment, and accountable decision-making between visits.',
   },
   {
     title: 'Standardized Clinical Pathways',
+    key: 'defined care pathways',
     body: 'Each patient is supported through defined care pathways aligned to diagnosis and risk, reducing variation while supporting consistent, evidence-based follow-up.',
   },
   {
     title: 'Clear Escalation & Accountability',
+    key: 'escalated according to protocol',
     body: 'Clinical signals are reviewed and escalated according to protocol, ensuring the right issues reach the right clinician at the right time.',
   },
 ]

@@ -6,6 +6,20 @@ import { Reveal } from '@/components/reveal'
 import { PageHeader } from '@/components/sections/page-header'
 import { flow, intro, pillars } from '@/content/clinical-governance'
 
+/** Highlights one phrase inside a sentence. */
+function KeyPhrase({ text, phrase }: { text: string; phrase: string }) {
+  const [before, after] = text.split(phrase)
+  return (
+    <>
+      {before}
+      <strong className="font-heading font-semibold text-primary">
+        {phrase}
+      </strong>
+      {after}
+    </>
+  )
+}
+
 export function ClinicalGovernancePage() {
   return (
     <>
@@ -40,8 +54,8 @@ export function ClinicalGovernancePage() {
                   <h2 className="mt-3 text-2xl leading-tight font-bold tracking-tight text-primary sm:text-3xl">
                     {pillar.title}
                   </h2>
-                  <p className="mt-4 text-lg leading-relaxed text-pretty text-foreground/75">
-                    {pillar.body}
+                  <p className="mt-4 text-lg leading-relaxed text-pretty text-foreground/80">
+                    <KeyPhrase text={pillar.body} phrase={pillar.key} />
                   </p>
                 </Reveal>
               </li>
