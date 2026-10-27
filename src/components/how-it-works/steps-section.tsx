@@ -21,11 +21,11 @@ export function StepsSection() {
                 <div className="p-6 sm:p-8 lg:col-span-7">
                   <span
                     aria-hidden
-                    className="grid size-11 place-items-center rounded-full bg-primary font-heading text-sm font-bold text-primary-foreground"
+                    className="block font-heading text-5xl leading-none font-bold text-primary/20"
                   >
                     {pad(i + 1)}
                   </span>
-                  <h2 className="mt-5 text-2xl leading-tight font-bold tracking-tight text-balance text-primary sm:text-3xl">
+                  <h2 className="mt-3 text-2xl leading-tight font-bold tracking-tight text-balance text-primary sm:text-3xl">
                     <span className="sr-only">Step {i + 1}: </span>
                     {step.title}
                   </h2>
