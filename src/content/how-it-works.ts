@@ -12,9 +12,9 @@ import escalationSmall from '@/assets/images/nurse-escalation-800.webp'
 
 export const intro = {
   title: 'How CarePath™ Works',
-  // Not on the live How It Works page: reused word for word from the live Home page (positioning section).
+  // New copy (2026-10-27): introduces the 4-step list beside it. Replaced a line borrowed from the Home page.
   subtitle:
-    'CarePath extends structured, nurse-informed workflows beyond discharge—ensuring care plans translate into real-world action.',
+    'Four steps that turn a care plan into real-world action after discharge.',
 }
 
 export type Step = {
