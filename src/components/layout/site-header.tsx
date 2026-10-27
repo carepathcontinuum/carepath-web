@@ -12,7 +12,7 @@ import { headerNav } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 /** Pages whose hero is dark and sits under a transparent header. */
-const OVERLAY_ROUTES = ['/']
+const OVERLAY_ROUTES = ['/', '/how-it-works']
 
 function useScrolled(threshold = 8) {
   const [scrolled, setScrolled] = useState(false)
@@ -67,17 +67,17 @@ export function SiteHeader() {
           <Logo inverted={overlay} />
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-2 lg:flex">
           {headerNav.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
                 cn(
-                  'relative px-3 py-2 text-sm font-semibold',
+                  'relative px-3 py-2 font-heading text-[0.9375rem] font-medium tracking-wide opacity-85 transition-opacity hover:opacity-100',
                   // underline that slides in from the left
-                  'after:absolute after:inset-x-3 after:bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-current after:transition-transform hover:after:scale-x-100',
-                  isActive && 'after:scale-x-100',
+                  'after:absolute after:inset-x-3 after:bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-current after:transition-transform after:duration-500 hover:after:scale-x-100',
+                  isActive && 'opacity-100 after:scale-x-100',
                 )
               }
             >
