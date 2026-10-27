@@ -3,11 +3,14 @@ import { Link } from 'react-router'
 import { Button } from '@/components/ui/button'
 import { hero } from '@/content/home'
 
-// Staggered entrance: tagline, then headline, then buttons
+// Staggered entrance: headline, then supporting line, then buttons
 const enter =
   'animate-in fade-in slide-in-from-bottom-6 duration-1000 ease-smooth fill-mode-both'
 
 export function HomeHero() {
+  // Brand name picked out in the light-navy highlight
+  const brand = 'CarePath'
+  const [before, after] = hero.title.split(brand)
   return (
     // Fills the first screen. -mt-18 pulls it up under the transparent sticky header (h-18).
     // svh = small viewport height, so mobile browser toolbars don't cut it off or make it jump.
@@ -35,16 +38,19 @@ export function HomeHero() {
 
       <div className="container -mt-6 pb-16 sm:pb-20 lg:mt-0 lg:py-16">
         <div className="max-w-2xl lg:w-1/2 lg:pr-12">
+          {/* Headline first, then the supporting line, like the other page headers */}
+          <h1
+            className={`${enter} text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl`}
+          >
+            {before}
+            <span className="text-highlight">{brand}</span>
+            {after}
+          </h1>
           <p
-            className={`${enter} border-l-2 border-highlight pl-4 text-base text-dark-muted-foreground sm:text-lg`}
+            className={`${enter} mt-6 max-w-xl text-lg text-pretty text-dark-muted-foreground delay-150 sm:text-xl`}
           >
             {hero.eyebrow}
           </p>
-          <h1
-            className={`${enter} mt-6 text-4xl leading-tight font-bold tracking-tight delay-150 sm:text-5xl xl:text-6xl`}
-          >
-            {hero.title}
-          </h1>
           <div
             className={`${enter} mt-10 flex flex-col gap-3 delay-300 sm:flex-row`}
           >
