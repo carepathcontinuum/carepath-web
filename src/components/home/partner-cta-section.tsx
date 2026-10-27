@@ -11,8 +11,8 @@ export function PartnerCtaSection() {
   const [intro, question] = partnerCta.lines
   return (
     <Section tone="dark" className="relative isolate overflow-hidden">
+      {/* One glow only, top-left: a bottom glow is cut off at the band edge and shows a seam above the footer */}
       <Glow className="-top-24 -left-24" />
-      <Glow className="-right-24 -bottom-24" />
       <Reveal className="container max-w-3xl text-center">
         <p className="text-lg text-pretty text-dark-muted-foreground sm:text-xl">
           {intro}
