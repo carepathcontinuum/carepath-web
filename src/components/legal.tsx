@@ -1,11 +1,11 @@
-import { Info } from 'lucide-react'
+import { Check, Info } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { Reveal } from '@/components/reveal'
 import { cn } from '@/lib/utils'
 
 /*
  * Shared building blocks for the legal pages (Terms, Privacy).
- * Type scale (same as How It Works): 48px faded number → 30px title → 18px lead → 16px details → 14px footnote.
+ * Type scale: 48px faded number → 30px title → 18px body (one style for every sentence) → 14px footnote.
  */
 
 /** Shows a reply word (STOP / HELP) as a small inline key inside its sentence. */
@@ -99,11 +99,24 @@ export function Clause({
   )
 }
 
-/** Secondary lines inside a clause: one step smaller than the lead sentence. */
-export function Details({ children }: { children: ReactNode }) {
+/** Separate statements as a checklist, in the body style. `columns` puts short items side by side from 640px. */
+export function CheckList({
+  items,
+  columns = false,
+}: {
+  items: ReactNode[]
+  columns?: boolean
+}) {
   return (
-    <div className="space-y-3 text-base leading-7 text-foreground/85">
-      {children}
-    </div>
+    <ul className={cn('grid gap-x-6 gap-y-3', columns && 'sm:grid-cols-2')}>
+      {items.map((item, i) => (
+        <li key={i} className="flex items-start gap-3">
+          <span className="mt-1.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+            <Check className="size-3" aria-hidden />
+          </span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
   )
 }

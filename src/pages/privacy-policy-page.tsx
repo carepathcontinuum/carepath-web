@@ -1,7 +1,7 @@
 import {
+  CheckList,
   Clause,
   Clauses,
-  Details,
   Footnote,
   KeywordLine,
 } from '@/components/legal'
@@ -26,12 +26,7 @@ export function PrivacyPolicyPage() {
         </Clause>
 
         <Clause number={2} total={4} title={use.title}>
-          <p>{use.lead}</p>
-          <Details>
-            {use.details.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </Details>
+          <CheckList items={[use.lead, ...use.details]} />
         </Clause>
 
         <Clause number={3} total={4} title={rights.title}>
@@ -39,7 +34,7 @@ export function PrivacyPolicyPage() {
             {rights.lead}{' '}
             <a
               href={`mailto:${site.email}`}
-              className="font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
+              className="text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
             >
               {site.email}
             </a>
@@ -47,14 +42,11 @@ export function PrivacyPolicyPage() {
         </Clause>
 
         <Clause number={4} total={4} title={sms.title}>
-          <p>
-            <KeywordLine {...sms.lines[0]} />
-          </p>
-          <Details>
-            <p>
-              <KeywordLine {...sms.lines[1]} />
-            </p>
-          </Details>
+          <CheckList
+            items={sms.lines.map((line) => (
+              <KeywordLine key={line.text} {...line} />
+            ))}
+          />
           <Footnote>{sms.note}</Footnote>
         </Clause>
       </Clauses>
