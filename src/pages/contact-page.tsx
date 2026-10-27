@@ -12,7 +12,8 @@ import { site } from '@/config/site'
 import { aside, form, intro } from '@/content/contact'
 
 // Larger than the shadcn defaults (32px / 14px): 48px touch targets, 16px text so iOS doesn't zoom in on focus.
-const label = 'font-heading text-sm font-semibold text-primary'
+// Side-column headings sit one step above their content (18px over 16px)
+const label = 'font-heading text-lg font-bold tracking-tight text-primary'
 const field = 'h-12 bg-card px-4 text-base md:text-base'
 
 function Required() {
@@ -108,23 +109,21 @@ export function ContactPage() {
             className="border-t pt-10 md:border-t-0 md:pt-0 md:pl-12 lg:pl-16"
           >
             {/* Three short blocks, each with the same small label */}
-            <p className={label}>{aside.audience.label}</p>
-            <p className="mt-2 text-lg text-foreground/85">
-              {aside.audience.text}
-            </p>
+            <h2 className={label}>{aside.audience.label}</h2>
+            <p className="mt-2 text-foreground/85">{aside.audience.text}</p>
             <div className="mt-8 border-t pt-8">
-              <p className={label}>{aside.engage.label}</p>
-              <div className="mt-3 text-lg text-foreground/85">
+              <h2 className={label}>{aside.engage.label}</h2>
+              <div className="mt-3 text-foreground/85">
                 <CheckList items={aside.engage.points} />
               </div>
             </div>
             <div className="mt-8 border-t pt-8">
-              <p className={label}>{aside.emailLabel}</p>
+              <h2 className={label}>{aside.emailLabel}</h2>
               <a
                 href={`mailto:${site.email}`}
-                className="mt-2 inline-flex items-center gap-2 text-lg text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
+                className="mt-2 inline-flex items-center gap-2 text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
               >
-                <Mail className="size-5" aria-hidden />
+                <Mail className="size-4" aria-hidden />
                 {site.email}
               </a>
             </div>

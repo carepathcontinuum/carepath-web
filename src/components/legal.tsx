@@ -111,7 +111,7 @@ export function CheckList({
     <ul className={cn('grid gap-x-6 gap-y-3', columns && 'sm:grid-cols-2')}>
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-3">
-          <span className="mt-1.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+          <span className="mt-[0.3em] grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
             <Check className="size-3" aria-hidden />
           </span>
           <span>{item}</span>
