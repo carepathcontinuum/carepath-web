@@ -25,17 +25,22 @@ export function WhyNotRpmPage() {
       {/* Tighter padding, as on the other inner pages */}
       <section className="py-12 sm:py-14 lg:py-16">
         <div className="container">
-          <Reveal className="max-w-3xl">
+          <Reveal>
             <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
               {difference.title}
             </p>
-            <p className="mt-3 text-lg leading-relaxed text-pretty text-foreground/80 sm:text-xl">
+            {/* Contrast headline, as on Home: RPM faded, CarePath solid */}
+            <h2 className="mt-4 font-heading text-3xl leading-tight font-bold tracking-tight text-primary sm:text-4xl xl:text-5xl">
+              <span className="block text-primary/35">{lead.title[0]}</span>
+              <span className="block">{lead.title[1]}</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-pretty text-foreground/80 sm:text-xl">
               <KeyPhrase text={lead.text} phrase={lead.key} />
             </p>
           </Reveal>
 
           {/* RPM faded, CarePath solid. Subgrid keeps each RPM point beside its CarePath answer. */}
-          <div className="mt-8 grid gap-6 md:grid-cols-2 md:grid-rows-[auto_repeat(3,auto)] md:gap-y-0 lg:mt-10 lg:gap-x-8">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 md:grid-rows-[auto_repeat(3,auto)] md:gap-y-0 lg:mt-10 lg:gap-x-8">
             {columns.map((col, c) => (
               <Reveal
                 key={col.name}
@@ -43,18 +48,32 @@ export function WhyNotRpmPage() {
                 className={cn(
                   'rounded-2xl p-6 sm:p-8 md:row-span-4 md:grid md:grid-rows-subgrid',
                   col.ours
-                    ? 'bg-primary text-primary-foreground shadow-xl'
+                    ? // Stronger: halo ring; on desktop it extends 16px past the RPM card (negative margin + extra padding
+                      // cancel out, so the shared rows stay level)
+                      'bg-primary text-primary-foreground shadow-2xl ring-4 ring-primary/15 sm:ring-8 md:-my-4 md:py-12'
                     : 'border bg-card',
                 )}
               >
-                <h2
-                  className={cn(
-                    'font-heading text-2xl leading-tight font-bold tracking-tight sm:text-3xl',
-                    col.ours ? 'text-primary-foreground' : 'text-primary/40',
-                  )}
-                >
-                  {col.name}
-                </h2>
+                <div>
+                  <p
+                    className={cn(
+                      'font-heading text-xs font-bold tracking-[0.2em] uppercase',
+                      col.ours ? 'text-highlight' : 'text-foreground/45',
+                    )}
+                  >
+                    {col.tag}
+                  </p>
+                  <h3
+                    className={cn(
+                      'mt-2 font-heading leading-tight font-bold tracking-tight',
+                      col.ours
+                        ? 'text-4xl text-primary-foreground xl:text-5xl'
+                        : 'text-2xl text-foreground/55 sm:text-3xl',
+                    )}
+                  >
+                    {col.name}
+                  </h3>
+                </div>
                 {col.points.map((point) => (
                   <p
                     key={point}
@@ -62,19 +81,19 @@ export function WhyNotRpmPage() {
                       'mt-4 flex items-start gap-3 border-t pt-4 font-heading text-lg font-semibold',
                       col.ours
                         ? 'border-white/15 text-primary-foreground'
-                        : 'text-foreground/50',
+                        : 'text-foreground/60',
                     )}
                   >
                     <span
                       className={cn(
-                        'mt-0.5 grid size-6 shrink-0 place-items-center rounded-full',
+                        'grid shrink-0 place-items-center rounded-full',
                         col.ours
-                          ? 'bg-highlight text-primary'
-                          : 'bg-muted text-foreground/40',
+                          ? 'size-7 bg-highlight text-primary'
+                          : 'mt-0.5 size-6 bg-muted text-foreground/40',
                       )}
                     >
                       {col.ours ? (
-                        <Check className="size-3.5" aria-hidden />
+                        <Check className="size-4" aria-hidden />
                       ) : (
                         <Minus className="size-3.5" aria-hidden />
                       )}
@@ -88,19 +107,18 @@ export function WhyNotRpmPage() {
         </div>
       </section>
 
-      {/* Why This Matters: contrast headline, as on Home */}
+      {/* Why This Matters: the problem as a muted lead, the answer as the headline */}
       <section className="bg-secondary py-12 sm:py-14 lg:py-16">
         <Reveal className="container">
           <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
             {matters.label}
           </p>
-          <h2 className="mt-4 font-heading text-3xl leading-tight font-bold tracking-tight text-primary sm:text-4xl xl:text-5xl">
-            <span className="block">{matters.title[0]}</span>
-            <span className="block text-primary/35">{matters.title[1]}</span>
-          </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/80 sm:text-xl">
-            {matters.body}
+          <p className="mt-4 max-w-3xl font-heading text-xl leading-snug font-semibold text-primary/45 sm:text-2xl">
+            {matters.title[0]} {matters.title[1]}
           </p>
+          <h2 className="mt-6 max-w-4xl border-l-4 border-primary pl-5 font-heading text-3xl leading-tight font-bold tracking-tight text-primary sm:pl-6 sm:text-4xl xl:text-5xl">
+            {matters.body}
+          </h2>
         </Reveal>
       </section>
 
