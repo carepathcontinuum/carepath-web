@@ -51,8 +51,10 @@ export const problem = {
   punchline: 'It doesn’t.',
 }
 
+// Changed on request (2026-10-27) from the live site's "The system is not built for EXECUTION.":
+// the problem section above now states the problem, so this band answers it.
 export const statement = {
-  before: 'The system is not built for',
+  before: 'CarePath is built for',
   highlight: 'EXECUTION.',
 }
 
