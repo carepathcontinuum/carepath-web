@@ -1,32 +1,59 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Mail } from 'lucide-react'
 import { Link } from 'react-router'
 import { Glow } from '@/components/glow'
 import { Reveal } from '@/components/reveal'
 import { Section } from '@/components/sections/section'
 import { Button } from '@/components/ui/button'
+import { site } from '@/config/site'
 import { partnerCta } from '@/content/home'
 
-/** Closing call to action at the end of the page. */
+/** Closing call to action at the end of the page: headline and context on the left, actions on the right. */
 export function PartnerCtaSection() {
-  const [intro, question] = partnerCta.lines
   return (
     <Section tone="dark" className="relative isolate overflow-hidden">
       {/* One glow only, top-left: a bottom glow is cut off at the band edge and shows a seam above the footer */}
       <Glow className="-top-24 -left-24" />
-      <Reveal className="container max-w-3xl text-center">
-        <p className="text-lg text-pretty text-dark-muted-foreground sm:text-xl">
-          {intro}
-        </p>
-        <p className="mt-6 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-          {question}
-        </p>
-        <Button asChild variant="inverse" size="xl" className="mt-10">
-          <Link to={partnerCta.cta.to}>
-            {partnerCta.cta.label}
-            <ArrowRight />
-          </Link>
-        </Button>
-      </Reveal>
+      <div className="container grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+        <Reveal>
+          <p className="inline-flex items-center gap-2 font-heading text-xs font-bold tracking-[0.2em] text-highlight uppercase">
+            {/* Live status dot */}
+            <span className="relative flex size-2">
+              <span className="absolute inset-0 rounded-full bg-highlight motion-safe:animate-ping" />
+              <span className="relative size-2 rounded-full bg-highlight" />
+            </span>
+            {partnerCta.eyebrow}
+          </p>
+          <h2 className="mt-4 max-w-2xl font-heading text-3xl leading-tight font-bold tracking-tight sm:text-4xl xl:text-5xl">
+            {partnerCta.title}
+          </h2>
+          <p className="mt-5 max-w-xl text-lg text-pretty text-dark-muted-foreground sm:text-xl">
+            {partnerCta.body}
+          </p>
+        </Reveal>
+
+        <Reveal
+          delay={150}
+          className="flex flex-col gap-3 sm:flex-row sm:items-center"
+        >
+          <Button asChild variant="inverse" size="xl">
+            <Link to={partnerCta.cta.to}>
+              {partnerCta.cta.label}
+              <ArrowRight />
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="xl"
+            className="border-white/40 bg-transparent text-dark-foreground"
+          >
+            <a href={`mailto:${site.email}`}>
+              <Mail />
+              {partnerCta.emailLabel}
+            </a>
+          </Button>
+        </Reveal>
+      </div>
     </Section>
   )
 }

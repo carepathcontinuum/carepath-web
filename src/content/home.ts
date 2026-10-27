@@ -92,12 +92,14 @@ export const positioning = {
   ],
 }
 
+// Reordered on request (2026-10-27): headline first, as a question (live site ended it with a dash:
+// "If you're rethinking what actually happens after discharge—"), then the partnering line.
 export const partnerCta = {
-  lines: [
-    'We are currently partnering with select health systems to evaluate CarePath in real-world settings.',
-    'If you’re rethinking what actually happens after discharge—',
-  ],
+  eyebrow: 'Now partnering',
+  title: 'Rethinking what actually happens after discharge?',
+  body: 'We are currently partnering with select health systems to evaluate CarePath in real-world settings.',
   cta: { label: 'Let’s talk', to: '/contact' },
+  emailLabel: 'Email us',
 }
 
 export type Leader = {
