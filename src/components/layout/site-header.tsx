@@ -20,6 +20,7 @@ const OVERLAY_ROUTES = [
   '/contact',
   '/clinical-governance',
   '/outcomes',
+  '/why-carepath-isnt-rpm',
 ]
 
 function useScrolled(threshold = 8) {
