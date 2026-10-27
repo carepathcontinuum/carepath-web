@@ -8,7 +8,7 @@ const pad = (n: number) => String(n).padStart(2, '0')
 
 /**
  * The 4 steps, one tinted card each: number, title, lead, checklist, and a photo flush to the card edge.
- * Type scale: 24/30px Montserrat title → 18px lead → 14px label → 16px checklist.
+ * Type steps (as on Home): 48px faded number → 30/36px title → 18/20px Lato lead → 12px caps label → 18px Montserrat checklist.
  */
 export function StepsSection() {
   return (
@@ -31,25 +31,26 @@ export function StepsSection() {
                   >
                     {pad(i + 1)}
                   </span>
-                  <h2 className="mt-3 text-2xl leading-tight font-bold tracking-tight text-balance text-primary sm:text-3xl">
+                  <h2 className="mt-3 text-3xl leading-tight font-bold tracking-tight text-balance text-primary xl:text-4xl">
                     <span className="sr-only">Step {i + 1}: </span>
                     {step.title}
                   </h2>
-                  <p className="mt-3 max-w-prose text-lg leading-relaxed text-pretty text-foreground/75">
+                  <p className="mt-4 max-w-prose text-lg leading-relaxed text-pretty text-foreground/75 sm:text-xl">
                     {step.lead}
                   </p>
-                  <p className="mt-6 text-sm font-bold text-primary">
+                  <p className="mt-8 font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
                     {step.label}
                   </p>
-                  <ul className="mt-3 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+                  <ul className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
                     {step.points.map((point) => (
-                      <li key={point} className="flex items-start gap-3">
-                        <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                      <li
+                        key={point}
+                        className="flex items-center gap-3 font-heading text-base font-semibold text-primary sm:text-lg"
+                      >
+                        <span className="grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
                           <Check className="size-3" aria-hidden />
                         </span>
-                        <span className="text-foreground/85 first-letter:uppercase">
-                          {point}
-                        </span>
+                        <span className="first-letter:uppercase">{point}</span>
                       </li>
                     ))}
                   </ul>
