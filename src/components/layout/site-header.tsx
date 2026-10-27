@@ -1,14 +1,16 @@
-import { ArrowRight, Menu, Route } from 'lucide-react'
+import { ArrowRight, Menu, Route, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'
+import { Glow } from '@/components/glow'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { headerNav } from '@/config/site'
+import { headerNav, legalNav, site } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 /** Pages whose hero is dark and sits under a transparent header. */
@@ -123,35 +125,80 @@ export function SiteHeader() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 gap-0 p-6">
-              <SheetTitle className="text-primary">
-                <Link to="/" onClick={closeMenu}>
-                  <Logo />
-                </Link>
-              </SheetTitle>
-              <nav aria-label="Main" className="mt-8 flex flex-col gap-1">
-                {headerNav.map((item) => (
-                  <NavLink
-                    key={item.to}
-                    to={item.to}
-                    onClick={closeMenu}
-                    className={({ isActive }) =>
-                      cn(
-                        'rounded-lg px-3 py-3 text-base font-semibold text-primary transition-colors hover:bg-secondary',
-                        isActive && 'bg-secondary',
-                      )
-                    }
+            {/* Mobile menu: navy panel in the site's style (Montserrat, numbered links, hairlines). Full width on phones, 384px from 640px. */}
+            <SheetContent
+              side="right"
+              showCloseButton={false}
+              className="isolate gap-0 overflow-hidden border-l-0 bg-dark p-0 text-dark-foreground data-[side=right]:w-full data-[side=right]:sm:max-w-sm"
+            >
+              <Glow className="-top-24 -right-24" />
+              <div className="flex h-18 items-center justify-between px-6">
+                <SheetTitle className="text-dark-foreground">
+                  <Link to="/" onClick={closeMenu}>
+                    <Logo inverted />
+                  </Link>
+                </SheetTitle>
+                <SheetClose asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon-lg"
+                    className="text-dark-foreground hover:bg-white/10 hover:text-dark-foreground"
                   >
-                    {item.label}
-                  </NavLink>
-                ))}
+                    <X className="size-6" />
+                    <span className="sr-only">Close menu</span>
+                  </Button>
+                </SheetClose>
+              </div>
+
+              <nav aria-label="Main" className="mt-4 px-6">
+                <ul className="border-b border-white/10">
+                  {headerNav.map((item, i) => (
+                    <li key={item.to} className="border-t border-white/10">
+                      <NavLink
+                        to={item.to}
+                        onClick={closeMenu}
+                        className={({ isActive }) =>
+                          cn(
+                            'group flex items-baseline gap-3 py-5 font-heading text-lg font-bold tracking-tight transition-colors hover:text-highlight',
+                            isActive && 'text-highlight',
+                          )
+                        }
+                      >
+                        <span className="w-5 shrink-0 font-heading text-xs font-bold text-highlight/60 tabular-nums">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
               </nav>
-              <Button asChild size="xl" className="mt-auto">
-                <Link to="/contact" onClick={closeMenu}>
-                  Let’s talk
-                  <ArrowRight />
-                </Link>
-              </Button>
+
+              <div className="mt-auto space-y-6 px-6 pb-8">
+                <Button asChild variant="inverse" size="xl" className="w-full">
+                  <Link to="/contact" onClick={closeMenu}>
+                    Let’s talk
+                    <ArrowRight />
+                  </Link>
+                </Button>
+                <div className="space-y-3 font-heading text-sm font-medium text-dark-muted-foreground">
+                  <a href={`mailto:${site.email}`} className="block w-fit">
+                    {site.email}
+                  </a>
+                  <p className="flex flex-wrap gap-x-6 gap-y-2">
+                    {legalNav.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={closeMenu}
+                        className="transition-colors hover:text-highlight"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </p>
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

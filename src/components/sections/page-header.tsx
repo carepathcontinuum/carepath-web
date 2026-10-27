@@ -46,7 +46,8 @@ export function PageHeader({ title, subtitle, aside, image }: PageHeaderProps) {
             className="absolute inset-0 size-full object-cover object-[60%_30%]"
           />
           {/* Same eased fades as the Home hero: upward into the text on phones, from the left on desktop */}
-          <div className="absolute inset-0 fade-dark-t lg:fade-dark-r" />
+          {/* -bottom-px: overlap the band by 1px so no photo edge shows as a line */}
+          <div className="absolute inset-x-0 top-0 -bottom-px fade-dark-t lg:fade-dark-r" />
           <div className="absolute inset-0 hidden bg-dark/25 lg:block" />
           {/* Darken the top so the white header stays readable */}
           <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-dark/70 to-transparent" />
