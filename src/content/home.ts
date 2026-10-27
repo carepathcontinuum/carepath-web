@@ -4,9 +4,7 @@ import {
   Home,
   Hospital,
   Network,
-  Puzzle,
   Repeat,
-  Route,
   ShieldCheck,
   Stethoscope,
   TrendingDown,
@@ -68,12 +66,10 @@ export const positioning = {
   title: ['Not monitoring.', 'Execution infrastructure.'],
   points: [
     {
-      icon: Route,
       title: 'Beyond discharge',
       body: 'Structured, nurse-informed workflows that turn care plans into real-world action.',
     },
     {
-      icon: Puzzle,
       title: 'Works with what you have',
       body: 'We don’t replace existing systems. We make them work.',
     },

@@ -1,3 +1,4 @@
+import { ArrowDown } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { Section } from '@/components/sections/section'
 import { positioning } from '@/content/home'
@@ -19,43 +20,40 @@ export function PositioningSection() {
             <span className="block">{positioning.title[1]}</span>
           </h2>
           <div className="mt-8 space-y-6 border-t border-primary/10 pt-8">
-            {positioning.points.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="flex items-start gap-4">
-                <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
-                  <Icon className="size-5" aria-hidden />
-                </span>
-                <div>
-                  <h3 className="text-lg font-bold text-primary">{title}</h3>
-                  <p className="mt-1 text-lg leading-relaxed text-foreground/75">
-                    {body}
-                  </p>
-                </div>
+            {positioning.points.map(({ title, body }) => (
+              <div key={title}>
+                <h3 className="text-lg font-bold text-primary">{title}</h3>
+                <p className="mt-1 max-w-md text-lg leading-relaxed text-foreground/75">
+                  {body}
+                </p>
               </div>
             ))}
           </div>
         </Reveal>
 
-        {/* Layer diagram: three stacked layers joined by a dashed spine */}
-        <Reveal delay={150}>
-          <div className="relative">
-            <span
-              aria-hidden
-              className="absolute inset-y-6 left-1/2 w-px -translate-x-1/2 border-l-2 border-dashed border-primary/25"
-            />
-            <ol className="relative space-y-4">
-              {positioning.layers.map((layer) => (
-                <li
-                  key={layer.title}
+        {/* Layer diagram: narrow, right-aligned; arrow badges show the flow down to the patient */}
+        <Reveal delay={150} className="mx-auto w-full max-w-md lg:mr-0">
+          <ol>
+            {positioning.layers.map((layer, i) => (
+              <li key={layer.title}>
+                {i > 0 && (
+                  <div aria-hidden className="flex justify-center py-2">
+                    <span className="grid size-8 place-items-center rounded-full border bg-card text-primary shadow-xs">
+                      <ArrowDown className="size-4" />
+                    </span>
+                  </div>
+                )}
+                <div
                   className={cn(
-                    'relative rounded-2xl border px-6 py-5 text-center',
+                    'rounded-2xl px-6 py-5 text-center',
                     layer.highlight
-                      ? 'border-transparent bg-primary py-7 text-primary-foreground shadow-xl sm:scale-105'
-                      : 'bg-card',
+                      ? 'bg-primary py-6 text-primary-foreground shadow-xl ring-4 ring-primary/10 sm:ring-8'
+                      : 'border bg-card',
                   )}
                 >
                   <p
                     className={cn(
-                      'font-heading font-bold',
+                      'font-heading font-bold tracking-tight',
                       layer.highlight ? 'text-2xl' : 'text-lg text-primary',
                     )}
                   >
@@ -63,18 +61,18 @@ export function PositioningSection() {
                   </p>
                   <p
                     className={cn(
-                      'mt-1',
+                      'mt-1 font-heading text-sm font-medium',
                       layer.highlight
                         ? 'text-highlight'
-                        : 'text-sm text-muted-foreground',
+                        : 'text-muted-foreground',
                     )}
                   >
                     {layer.body}
                   </p>
-                </li>
-              ))}
-            </ol>
-          </div>
+                </div>
+              </li>
+            ))}
+          </ol>
         </Reveal>
       </div>
     </Section>
