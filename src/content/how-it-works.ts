@@ -11,7 +11,6 @@ import escalationSmall from '@/assets/images/nurse-escalation-800.webp'
 // after "clinical crisis", and the "•" bullets turned into lists. Don't rewrite sentences.
 
 export const intro = {
-  eyebrow: 'How It Works',
   title: 'How CarePath™ Works',
   // Not on the live How It Works page: reused word for word from the live Home page (positioning section).
   subtitle:
