@@ -3,23 +3,26 @@ import { Reveal } from '@/components/reveal'
 import { Section } from '@/components/sections/section'
 import { problem } from '@/content/home'
 
-/** One reading path: label → headline → what patients leave with → punchline. */
+/**
+ * One reading path: label → headline (left), then what patients leave with → punchline (right).
+ * Full container width, left-aligned with the hero; a hairline splits the columns. Stacks on phones.
+ */
 export function ProblemSection() {
   return (
     <Section>
-      <div className="container max-w-3xl text-center">
-        <Reveal>
+      <div className="container grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-0">
+        <Reveal className="lg:border-r lg:pr-16">
           <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
             {problem.eyebrow}
           </p>
-          <h2 className="mt-4 font-heading text-3xl leading-tight font-bold tracking-tight text-balance text-primary sm:text-4xl">
+          <h2 className="mt-4 font-heading text-3xl leading-tight font-bold tracking-tight text-primary sm:text-4xl xl:text-5xl">
             {problem.title}
           </h2>
         </Reveal>
 
-        <Reveal delay={150} className="mt-10">
+        <Reveal delay={150} className="lg:pl-16">
           <p className="text-muted-foreground">{problem.leavesWith}</p>
-          <ul className="mt-4 flex flex-wrap justify-center gap-3">
+          <ul className="mt-4 flex flex-wrap gap-3">
             {problem.items.map((item) => (
               <li
                 key={item}
@@ -30,10 +33,7 @@ export function ProblemSection() {
               </li>
             ))}
           </ul>
-        </Reveal>
-
-        <Reveal delay={300} className="mt-12">
-          <p className="text-lg text-foreground/75 sm:text-xl">
+          <p className="mt-10 text-lg text-foreground/75 sm:text-xl">
             {problem.assumption}
           </p>
           <p className="mt-2 font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl">
