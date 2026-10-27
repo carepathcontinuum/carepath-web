@@ -21,7 +21,7 @@ export function PartnerCtaSection() {
           <h2 className="mt-4 max-w-2xl font-heading text-3xl leading-tight font-bold tracking-tight sm:text-4xl xl:text-5xl">
             {partnerCta.title}
           </h2>
-          <p className="mt-5 max-w-xl text-lg text-pretty text-dark-muted-foreground sm:text-xl">
+          <p className="mt-5 max-w-xl font-heading text-lg leading-relaxed font-medium text-pretty text-dark-muted-foreground sm:text-xl">
             {partnerCta.body}
           </p>
         </Reveal>
