@@ -23,7 +23,7 @@ export function SiteFooter() {
           </Link>
           <a
             href={`mailto:${site.email}`}
-            className={`mt-4 text-sm ${linkClass}`}
+            className="mt-4 block w-fit text-sm font-medium text-dark-muted-foreground"
           >
             {site.email}
           </a>
