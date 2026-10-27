@@ -27,16 +27,7 @@ export function TermsPage() {
       <PageHeader
         title={intro.title}
         subtitle={intro.subtitle}
-        aside={
-          <img
-            src={intro.image.src}
-            srcSet={intro.image.srcSet}
-            sizes="(min-width: 1024px) 28rem, 100vw"
-            alt={intro.image.alt}
-            fetchPriority="high"
-            className="aspect-4/3 w-full rounded-2xl object-cover shadow-2xl lg:w-md"
-          />
-        }
+        image={intro.image}
       />
 
       <Section>
