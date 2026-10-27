@@ -21,9 +21,22 @@ export const form = {
   thanks: 'Thank you. We’ll be in touch soon.',
 }
 
+// Condensed on request (2026-10-27) from the live site's two sentences, which both opened "CarePath … organizations":
+// "CarePath partners with health systems and care organizations to support nurse-led care coordination between visits."
+// "CarePath engages with organizations through scheduled conversations and pilot discussions. In-person meetings are
+// arranged as appropriate."
 export const aside = {
-  partners:
-    'CarePath partners with health systems and care organizations to support nurse-led care coordination between visits.',
-  note: 'CarePath engages with organizations through scheduled conversations and pilot discussions. In-person meetings are arranged as appropriate.',
+  audience: {
+    label: 'Who we work with',
+    text: 'Health systems and care organizations',
+  },
+  engage: {
+    label: 'How we engage',
+    points: [
+      'Scheduled conversations',
+      'Pilot discussions',
+      'In-person meetings, as appropriate',
+    ],
+  },
   emailLabel: 'Prefer email?',
 }

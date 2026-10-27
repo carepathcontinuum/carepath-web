@@ -1,5 +1,6 @@
 import { ArrowRight, CircleCheck, Mail } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
+import { CheckList } from '@/components/legal'
 import { PageTitle } from '@/components/page-title'
 import { Reveal } from '@/components/reveal'
 import { PageHeader } from '@/components/sections/page-header'
@@ -11,6 +12,7 @@ import { site } from '@/config/site'
 import { aside, form, intro } from '@/content/contact'
 
 // Larger than the shadcn defaults (32px / 14px): 48px touch targets, 16px text so iOS doesn't zoom in on focus.
+const label = 'font-heading text-sm font-semibold text-primary'
 const field = 'h-12 bg-card px-4 text-base md:text-base'
 
 function Required() {
@@ -105,16 +107,19 @@ export function ContactPage() {
             delay={150}
             className="border-t pt-10 md:border-t-0 md:pt-0 md:pl-12 lg:pl-16"
           >
-            <p className="-mt-1.5 font-heading text-xl leading-snug font-bold tracking-tight text-balance text-primary">
-              {aside.partners}
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-foreground/75">
-              {aside.note}
+            {/* Three short blocks, each with the same small label */}
+            <p className={label}>{aside.audience.label}</p>
+            <p className="mt-2 text-lg text-foreground/85">
+              {aside.audience.text}
             </p>
             <div className="mt-8 border-t pt-8">
-              <p className="font-heading text-sm font-semibold text-primary">
-                {aside.emailLabel}
-              </p>
+              <p className={label}>{aside.engage.label}</p>
+              <div className="mt-3 text-lg text-foreground/85">
+                <CheckList items={aside.engage.points} />
+              </div>
+            </div>
+            <div className="mt-8 border-t pt-8">
+              <p className={label}>{aside.emailLabel}</p>
               <a
                 href={`mailto:${site.email}`}
                 className="mt-2 inline-flex items-center gap-2 text-lg text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
