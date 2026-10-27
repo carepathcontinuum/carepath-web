@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import { PageTitle } from '@/components/page-title'
 import { Reveal } from '@/components/reveal'
 import { PageHeader } from '@/components/sections/page-header'
-import { Section } from '@/components/sections/section'
 import { consent, intro, sms, type ConsentLine } from '@/content/terms'
 
 /** Shows the reply word (STOP / HELP) as a small inline key inside its sentence. */
@@ -21,7 +20,10 @@ function Line({ text, keyword }: ConsentLine) {
   )
 }
 
-/** One clause: number tile + title, then the body. Columns are split by a hairline, no card. */
+/**
+ * One clause: faded number, title, then the body. Columns are split by a hairline, no card.
+ * Type scale (same as How It Works): 48px faded number → 30px title → 18px lead sentence → 16px details → 14px footnote.
+ */
 function Clause({
   number,
   title,
@@ -34,15 +36,20 @@ function Clause({
   return (
     <section className="py-10 first:pt-0 last:pb-0 md:py-0 md:first:pr-12 md:last:pl-12 lg:first:pr-16 lg:last:pl-16">
       <Reveal delay={(number - 1) * 150} className="flex h-full flex-col">
-        <header className="flex items-center gap-4">
-          <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-primary font-heading font-bold text-primary-foreground">
-            {number}
+        {/* Same number and title style as the How It Works steps */}
+        <header>
+          <span
+            aria-hidden
+            className="block font-heading text-5xl leading-none font-bold text-primary/20"
+          >
+            {String(number).padStart(2, '0')}
           </span>
-          <h2 className="text-xl leading-snug font-bold tracking-tight text-primary sm:text-2xl">
+          <h2 className="mt-3 text-2xl leading-tight font-bold tracking-tight text-balance text-primary sm:text-3xl">
+            <span className="sr-only">{number}. </span>
             {title}
           </h2>
         </header>
-        <div className="mt-6 flex flex-1 flex-col gap-5 leading-relaxed text-foreground/85">
+        <div className="mt-5 flex flex-1 flex-col gap-5 text-lg leading-relaxed text-foreground/75">
           {children}
         </div>
       </Reveal>
@@ -60,19 +67,22 @@ export function TermsPage() {
         image={intro.image}
       />
 
-      <Section>
+      {/* Tighter vertical padding than the shared Section: the page is short */}
+      <section className="py-12 sm:py-14 lg:py-16">
         {/* Two short clauses, side by side from 768px, split by a hairline */}
         <div className="container">
           <div className="grid divide-y md:grid-cols-2 md:divide-x md:divide-y-0">
             <Clause number={1} title={sms.title}>
-              <p className="text-sm font-bold text-primary">{sms.label}</p>
-              <ul className="space-y-3">
+              <p>{sms.label}</p>
+              <ul className="grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
                 {sms.points.map((point) => (
                   <li key={point} className="flex items-center gap-3">
-                    <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
-                      <Check className="size-3.5" aria-hidden />
+                    <span className="grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                      <Check className="size-3" aria-hidden />
                     </span>
-                    {point}
+                    <span className="text-base text-foreground/85">
+                      {point}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -85,8 +95,8 @@ export function TermsPage() {
 
             <Clause number={2} title={consent.title}>
               <p>{consent.lines[0].text}</p>
-              {/* Opt-out actions grouped so the reply words are easy to find */}
-              <div className="space-y-3 border-l-2 border-primary/20 pl-5">
+              {/* Opt-out actions: one step smaller than the consent sentence */}
+              <div className="space-y-3 text-base text-foreground/85">
                 {consent.lines.slice(1).map((line) => (
                   <p key={line.text}>
                     <Line {...line} />
@@ -96,7 +106,7 @@ export function TermsPage() {
             </Clause>
           </div>
         </div>
-      </Section>
+      </section>
     </>
   )
 }
