@@ -4,7 +4,9 @@ import {
   Home,
   Hospital,
   Network,
+  Puzzle,
   Repeat,
+  Route,
   ShieldCheck,
   Stethoscope,
   TrendingDown,
@@ -58,12 +60,39 @@ export const statement = {
   highlight: 'EXECUTION.',
 }
 
+// Condensed on request (2026-10-27). Live-site original: "CarePath is not monitoring." / "It is execution
+// infrastructure." / "CarePath extends structured, nurse-informed workflows beyond discharge—ensuring care plans
+// translate into real-world action." / "We don't replace existing systems. We make them work."
+// Mirrors the problem section: a faded/solid contrast headline, then an aligned row of points.
 export const positioning = {
-  eyebrow: 'CarePath is not monitoring.',
-  title: 'It is execution infrastructure.',
-  body: [
-    'CarePath extends structured, nurse-informed workflows beyond discharge—ensuring care plans translate into real-world action.',
-    'We don’t replace existing systems. We make them work.',
+  title: ['Not monitoring.', 'Execution infrastructure.'],
+  points: [
+    {
+      icon: Route,
+      title: 'Beyond discharge',
+      body: 'Structured, nurse-informed workflows that turn care plans into real-world action.',
+    },
+    {
+      icon: Puzzle,
+      title: 'Works with what you have',
+      body: 'We don’t replace existing systems. We make them work.',
+    },
+  ],
+  // Diagram: CarePath as the layer between existing care and the patient's home (new copy, 2026-10-27)
+  layers: [
+    {
+      title: 'Care teams & existing systems',
+      body: 'Care plans, orders, follow-up schedules',
+    },
+    {
+      title: 'CarePath',
+      body: 'Nurse-informed execution layer',
+      highlight: true,
+    },
+    {
+      title: 'Patients at home',
+      body: 'Daily actions, check-ins, early signals',
+    },
   ],
 }
 
