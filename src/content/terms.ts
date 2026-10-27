@@ -22,10 +22,7 @@ export const sms = {
   note: 'Message frequency may vary. Message and data rates may apply.',
 }
 
-/** `keyword` is the reply word inside `text`, shown as a badge. */
-export type ConsentLine = { text: string; keyword?: string }
-
-export const consent: { title: string; lines: ConsentLine[] } = {
+export const consent = {
   title: 'User Consent',
   lines: [
     {

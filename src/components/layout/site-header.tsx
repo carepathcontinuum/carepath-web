@@ -12,7 +12,12 @@ import { headerNav } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 /** Pages whose hero is dark and sits under a transparent header. */
-const OVERLAY_ROUTES = ['/', '/how-it-works', '/terms-and-conditions']
+const OVERLAY_ROUTES = [
+  '/',
+  '/how-it-works',
+  '/terms-and-conditions',
+  '/privacy-policy',
+]
 
 function useScrolled(threshold = 8) {
   const [scrolled, setScrolled] = useState(false)
