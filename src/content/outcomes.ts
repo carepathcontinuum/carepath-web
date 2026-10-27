@@ -25,7 +25,7 @@ export const outcomes = [
   },
   {
     title: 'Less Noise for Care Teams',
-    key: 'only clinically relevant signals',
+    key: 'Only clinically relevant signals',
     body: 'Only clinically relevant signals reach nurses, so teams can focus on patients who need them.',
   },
   {

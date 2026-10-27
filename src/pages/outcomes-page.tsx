@@ -1,5 +1,6 @@
 import { Check, FileText } from 'lucide-react'
 import { PartnerCtaSection } from '@/components/home/partner-cta-section'
+import { Glow } from '@/components/glow'
 import { KeyPhrase } from '@/components/key-phrase'
 import { Footnote } from '@/components/legal'
 import { PageTitle } from '@/components/page-title'
@@ -48,16 +49,17 @@ export function OutcomesPage() {
             ))}
           </ol>
 
-          {/* Outcome 3 made tangible: heading on the left, a document preview of the summary on the right */}
-          <Reveal className="mt-12 grid gap-8 rounded-2xl bg-secondary p-6 sm:p-10 lg:mt-16 lg:grid-cols-2 lg:items-center lg:gap-16">
+          {/* Outcome 3 made tangible: navy panel (the site's emphasis colour) with a white document preview */}
+          <Reveal className="relative isolate mt-12 grid gap-8 overflow-hidden rounded-2xl bg-dark p-6 text-dark-foreground sm:p-10 lg:mt-16 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <Glow className="-top-32 -left-32" />
             <div>
-              <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
+              <p className="font-heading text-xs font-bold tracking-[0.2em] text-highlight uppercase">
                 {summary.label}
               </p>
-              <h3 className="mt-3 font-heading text-2xl leading-tight font-bold tracking-tight text-primary sm:text-3xl">
+              <h3 className="mt-3 font-heading text-2xl leading-tight font-bold tracking-tight sm:text-3xl">
                 {summary.title}
               </h3>
-              <p className="mt-4 max-w-md text-lg leading-relaxed text-foreground/80">
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-dark-muted-foreground">
                 {summary.body}
               </p>
             </div>
@@ -65,7 +67,7 @@ export function OutcomesPage() {
             {/* Document preview: structure only, no sample data */}
             <div
               aria-hidden
-              className="rounded-2xl border bg-card p-5 shadow-lg sm:p-6"
+              className="rounded-2xl bg-card p-5 text-foreground shadow-2xl sm:p-6"
             >
               <div className="flex items-center justify-between gap-4 border-b pb-4">
                 <span className="flex items-center gap-3 font-heading font-bold whitespace-nowrap text-primary">
