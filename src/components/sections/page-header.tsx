@@ -36,7 +36,7 @@ export function PageHeader({ title, subtitle, aside, image }: PageHeaderProps) {
         </>
       )}
       {image && (
-        <div className="relative h-64 sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[42%] lg:-z-10 lg:h-auto">
+        <div className="relative h-64 sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[30%] lg:-z-10 lg:h-auto">
           <img
             src={image.src}
             srcSet={image.srcSet}
@@ -47,7 +47,7 @@ export function PageHeader({ title, subtitle, aside, image }: PageHeaderProps) {
           />
           {/* Same eased fades as the Home hero: upward into the text on phones, from the left on desktop */}
           <div className="absolute inset-0 fade-dark-t lg:fade-dark-r" />
-          <div className="absolute inset-0 hidden bg-dark/15 lg:block" />
+          <div className="absolute inset-0 hidden bg-dark/25 lg:block" />
           {/* Darken the top so the white header stays readable */}
           <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-dark/70 to-transparent" />
         </div>
