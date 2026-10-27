@@ -73,14 +73,14 @@ export function SiteHeader() {
           <Logo inverted={overlay} />
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-2 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-2 xl:flex">
           {headerNav.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
                 cn(
-                  'relative px-3 py-2 font-heading text-[0.9375rem] font-medium tracking-wide opacity-85 transition-opacity hover:opacity-100',
+                  'relative px-3 py-2 font-heading text-[0.9375rem] font-medium tracking-wide whitespace-nowrap opacity-85 transition-opacity hover:opacity-100',
                   // underline that slides in from the left
                   'after:absolute after:inset-x-3 after:bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-current after:transition-transform after:duration-500 hover:after:scale-x-100',
                   isActive && 'opacity-100 after:scale-x-100',
@@ -111,7 +111,7 @@ export function SiteHeader() {
                 variant="ghost"
                 size="icon-lg"
                 className={cn(
-                  'lg:hidden',
+                  'xl:hidden',
                   overlay &&
                     'hover:bg-white/10 hover:text-dark-foreground aria-expanded:bg-white/10 aria-expanded:text-dark-foreground',
                 )}

@@ -36,15 +36,18 @@ export function HomeHero() {
         <div className="absolute inset-x-0 top-0 hidden h-40 bg-linear-to-b from-dark/70 to-transparent lg:block" />
       </div>
 
-      <div className="container -mt-6 pb-16 sm:pb-20 lg:mt-0 lg:py-16">
-        <div className="max-w-2xl lg:w-1/2 lg:pr-12">
+      <div className="container -mt-6 pb-16 sm:pb-20 lg:mt-0 lg:pt-8 lg:pb-24">
+        <div className="max-w-2xl lg:w-[58%] lg:max-w-none">
           {/* Headline first, then the supporting line, like the other page headers */}
           <h1
-            className={`${enter} text-4xl leading-tight font-bold tracking-tight sm:text-5xl xl:text-6xl`}
+            className={`${enter} text-4xl leading-[1.1] font-bold tracking-tight sm:text-5xl xl:text-[3.5rem]`}
           >
-            {before}
-            <span className="text-highlight">{brand}</span>
-            {after}
+            {/* Each sentence starts its own line, so the highlighted brand opens the second one */}
+            <span className="block">{before.trim()}</span>
+            <span className="block text-balance">
+              <span className="text-highlight">{brand}</span>
+              {after}
+            </span>
           </h1>
           <p
             className={`${enter} mt-6 max-w-xl text-lg text-pretty text-dark-muted-foreground delay-150 sm:text-xl`}
@@ -74,7 +77,7 @@ export function HomeHero() {
 
       <ChevronDown
         aria-hidden
-        className="absolute bottom-4 left-1/2 size-7 -translate-x-1/2 text-dark-muted-foreground motion-safe:animate-bounce lg:left-1/4"
+        className="absolute bottom-4 left-1/2 size-7 -translate-x-1/2 text-dark-muted-foreground motion-safe:animate-bounce"
       />
     </section>
   )
