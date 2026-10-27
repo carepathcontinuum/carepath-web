@@ -41,8 +41,12 @@ export const problem = {
   eyebrow: 'Healthcare today',
   // Shown as a contrast: the second line is faded, so the gap is visible
   title: ['Built for planning.', 'Not for after discharge.'],
-  leavesWith: 'Patients leave with the right:',
-  items: ['Medications', 'Follow-ups', 'Instructions'],
+  leavesWith: 'At discharge, patients leave with',
+  items: [
+    'The right medications',
+    'The right follow-ups',
+    'The right instructions',
+  ],
   assumption: 'We assume the rest happens.',
   punchline: 'It doesn’t.',
 }

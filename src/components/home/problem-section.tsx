@@ -11,7 +11,7 @@ export function ProblemSection() {
   return (
     <Section>
       <div className="container grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-0">
-        <Reveal className="lg:border-r lg:pr-16">
+        <Reveal className="lg:pr-16">
           <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
             {problem.eyebrow}
           </p>
@@ -21,27 +21,32 @@ export function ProblemSection() {
           </h2>
         </Reveal>
 
+        {/* Reads like a discharge checklist: everything ticked, then the gap */}
         <Reveal delay={150} className="lg:pl-16">
-          <p className="text-lg text-foreground/75 sm:text-xl">
-            {problem.leavesWith}
-          </p>
-          <ul className="mt-4 flex flex-wrap gap-3">
-            {problem.items.map((item) => (
-              <li
-                key={item}
-                className="inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 font-heading text-sm font-semibold text-primary"
-              >
-                <Check className="size-4" aria-hidden />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-10 text-lg text-foreground/75 sm:text-xl">
-            {problem.assumption}
-          </p>
-          <p className="mt-2 font-heading text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            {problem.punchline}
-          </p>
+          <div className="rounded-2xl border bg-card p-6 shadow-sm sm:p-8">
+            <p className="font-heading text-sm font-semibold text-muted-foreground">
+              {problem.leavesWith}
+            </p>
+            <ul className="mt-4 space-y-3">
+              {problem.items.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-lg text-foreground/85"
+                >
+                  <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                    <Check className="size-3.5" aria-hidden />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 border-t border-dashed border-primary/25 pt-6">
+              <p className="text-lg text-foreground/75">{problem.assumption}</p>
+              <p className="mt-1 font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                {problem.punchline}
+              </p>
+            </div>
+          </div>
         </Reveal>
       </div>
     </Section>
