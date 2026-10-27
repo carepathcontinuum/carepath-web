@@ -21,7 +21,7 @@ function Line({ text, keyword }: ConsentLine) {
   )
 }
 
-/** One clause as a white panel: tinted header strip (number tile + title), then the body. */
+/** One clause: number tile + title, then the body. Columns are split by a hairline, no card. */
 function Clause({
   number,
   title,
@@ -32,9 +32,9 @@ function Clause({
   children: ReactNode
 }) {
   return (
-    <Reveal delay={(number - 1) * 150} className="h-full">
-      <section className="flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-sm">
-        <header className="flex items-center gap-4 border-b bg-secondary/60 px-6 py-5 sm:px-8">
+    <section className="py-10 first:pt-0 last:pb-0 md:py-0 md:first:pr-12 md:last:pl-12 lg:first:pr-16 lg:last:pl-16">
+      <Reveal delay={(number - 1) * 150} className="flex h-full flex-col">
+        <header className="flex items-center gap-4">
           <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-primary font-heading font-bold text-primary-foreground">
             {number}
           </span>
@@ -42,11 +42,11 @@ function Clause({
             {title}
           </h2>
         </header>
-        <div className="flex flex-1 flex-col gap-5 p-6 leading-relaxed text-foreground/85 sm:p-8">
+        <div className="mt-6 flex flex-1 flex-col gap-5 leading-relaxed text-foreground/85">
           {children}
         </div>
-      </section>
-    </Reveal>
+      </Reveal>
+    </section>
   )
 }
 
@@ -61,9 +61,9 @@ export function TermsPage() {
       />
 
       <Section>
-        {/* Two short clauses, side by side from 768px */}
+        {/* Two short clauses, side by side from 768px, split by a hairline */}
         <div className="container">
-          <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
+          <div className="grid divide-y md:grid-cols-2 md:divide-x md:divide-y-0">
             <Clause number={1} title={sms.title}>
               <p className="text-sm font-bold text-primary">{sms.label}</p>
               <ul className="space-y-3">
@@ -86,7 +86,7 @@ export function TermsPage() {
             <Clause number={2} title={consent.title}>
               <p>{consent.lines[0].text}</p>
               {/* Opt-out actions grouped so the reply words are easy to find */}
-              <div className="space-y-3 rounded-xl bg-secondary/60 p-5">
+              <div className="space-y-3 border-l-2 border-primary/20 pl-5">
                 {consent.lines.slice(1).map((line) => (
                   <p key={line.text}>
                     <Line {...line} />
