@@ -34,7 +34,10 @@ export function PageHeader() {
         </div>
 
         {/* Overview of the 4 steps; each jumps to its step below */}
-        <nav aria-label="Steps" className={`${enter} delay-500 lg:col-span-5`}>
+        <nav
+          aria-label="Steps"
+          className={`${enter} delay-500 lg:col-span-5 lg:justify-self-end`}
+        >
           {/* Stepper: numbered circles joined by a line */}
           <ol>
             {steps.map((step, i) => (
@@ -49,8 +52,8 @@ export function PageHeader() {
                   href={`#${step.id}`}
                   className="group flex items-center gap-4 rounded-lg transition-colors hover:text-highlight"
                 >
-                  <span className="grid size-10 shrink-0 place-items-center rounded-full border border-highlight/40 bg-white/5 font-heading text-sm font-bold text-highlight tabular-nums transition-colors group-hover:border-highlight group-hover:bg-highlight group-hover:text-dark">
-                    {String(i + 1).padStart(2, '0')}
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full border border-highlight/40 bg-white/5 font-heading text-sm font-bold text-highlight transition-colors group-hover:border-highlight group-hover:bg-highlight group-hover:text-dark">
+                    {i + 1}
                   </span>
                   <span className="flex-1 font-heading font-semibold">
                     {step.title}
