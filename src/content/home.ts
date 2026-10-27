@@ -33,11 +33,17 @@ export const hero = {
   },
 }
 
+// Condensed on request (2026-10-27). Live-site original:
+// "Healthcare is optimized for planning. It is not designed for execution after discharge."
+// "Patients leave with the right medications, the right follow-ups, and the right instructions—and we assume
+// everything happens." / "It doesn't."
 export const problem = {
-  lines: [
-    'Healthcare is optimized for planning. It is not designed for execution after discharge.',
-    'Patients leave with the right medications, the right follow-ups, and the right instructions—and we assume everything happens.',
-  ],
+  eyebrow: 'The gap after discharge',
+  title:
+    'Healthcare is built for planning, not for what happens after discharge.',
+  leavesWith: 'Patients leave with the right:',
+  items: ['Medications', 'Follow-ups', 'Instructions'],
+  assumption: 'We assume the rest happens.',
   punchline: 'It doesn’t.',
 }
 
