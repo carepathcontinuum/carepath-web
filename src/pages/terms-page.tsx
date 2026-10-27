@@ -85,7 +85,7 @@ export function TermsPage() {
                 ))}
               </ul>
               {/* Footnote pinned to the bottom so both panels end level */}
-              <p className="mt-auto flex gap-2 border-t pt-5 text-sm text-muted-foreground">
+              <p className="mt-auto flex gap-2 border-t pt-5 font-heading text-sm font-medium text-muted-foreground">
                 <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
                 {sms.note}
               </p>
