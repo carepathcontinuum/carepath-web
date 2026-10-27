@@ -2,6 +2,7 @@ import { Check } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { Section } from '@/components/sections/section'
 import { steps } from '@/content/how-it-works'
+import { cn } from '@/lib/utils'
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
@@ -49,7 +50,13 @@ export function StepsSection() {
                   </ul>
                 </div>
 
-                <div className="group relative order-first overflow-hidden lg:order-last lg:col-span-5 lg:min-h-64">
+                {/* Photo alternates sides on desktop: right, left, right, left */}
+                <div
+                  className={cn(
+                    'group relative order-first overflow-hidden lg:col-span-5 lg:min-h-64',
+                    i % 2 === 0 && 'lg:order-last',
+                  )}
+                >
                   <img
                     src={step.image.src}
                     srcSet={step.image.srcSet}
