@@ -19,6 +19,7 @@ const OVERLAY_ROUTES = [
   '/privacy-policy',
   '/contact',
   '/clinical-governance',
+  '/outcomes',
 ]
 
 function useScrolled(threshold = 8) {
