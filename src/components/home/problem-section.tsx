@@ -4,44 +4,43 @@ import { Section } from '@/components/sections/section'
 import { problem } from '@/content/home'
 
 /**
- * One reading path: label → headline (left), then what patients leave with → punchline (right).
- * Full container width, left-aligned with the hero; a hairline splits the columns. Stacks on phones.
+ * Headline across the top, then one aligned row: what patients leave with (3 ticks) → the punchline.
+ * Every block shares the container's left edge and the row's top line. Stacks on phones.
  */
 export function ProblemSection() {
   return (
     <Section>
-      <div className="container grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-0">
-        <Reveal className="lg:pr-16">
-          <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
-            {problem.eyebrow}
-          </p>
-          <h2 className="mt-4 font-heading text-3xl leading-tight font-bold tracking-tight text-primary sm:text-4xl xl:text-5xl">
+      <div className="container">
+        <Reveal>
+          <h2 className="font-heading text-3xl leading-tight font-bold tracking-tight text-primary sm:text-4xl xl:text-5xl">
             <span className="block">{problem.title[0]}</span>
             <span className="block text-primary/35">{problem.title[1]}</span>
           </h2>
         </Reveal>
 
-        {/* Reads like a discharge checklist: everything ticked, then the gap */}
-        <Reveal delay={150} className="lg:pl-16">
-          <div className="rounded-2xl border bg-card p-6 shadow-sm sm:p-8">
-            <p className="font-heading text-sm font-semibold text-muted-foreground">
-              {problem.leavesWith}
-            </p>
-            <ul className="mt-4 space-y-3">
+        <Reveal delay={150} className="mt-12 border-t pt-8 lg:mt-16">
+          <p className="font-heading text-sm font-semibold text-muted-foreground">
+            {problem.leavesWith}
+          </p>
+          <div className="mt-5 grid gap-8 lg:grid-cols-4">
+            <ul className="grid gap-4 sm:grid-cols-3 lg:col-span-3">
               {problem.items.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 text-lg text-foreground/85"
+                  className="flex items-start gap-3 text-lg leading-snug text-foreground/85"
                 >
-                  <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
                     <Check className="size-3.5" aria-hidden />
                   </span>
                   {item}
                 </li>
               ))}
             </ul>
-            <div className="mt-6 border-t border-dashed border-primary/25 pt-6">
-              <p className="text-lg text-foreground/75">{problem.assumption}</p>
+            {/* The payoff, set off by a rule */}
+            <div className="border-t border-dashed border-primary/25 pt-6 lg:-mt-1 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+              <p className="text-lg leading-snug text-foreground/75">
+                {problem.assumption}
+              </p>
               <p className="mt-1 font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl">
                 {problem.punchline}
               </p>

@@ -38,9 +38,9 @@ export const hero = {
 // "Patients leave with the right medications, the right follow-ups, and the right instructions—and we assume
 // everything happens." / "It doesn't."
 export const problem = {
-  eyebrow: 'Healthcare today',
   // Shown as a contrast: the second line is faded, so the gap is visible
-  title: ['Built for planning.', 'Not for after discharge.'],
+  // Subject in the headline itself, so it can't be read as a claim about CarePath
+  title: ['Healthcare is built for planning.', 'Not for after discharge.'],
   leavesWith: 'At discharge, patients leave with',
   items: [
     'The right medications',
