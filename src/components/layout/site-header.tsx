@@ -25,7 +25,7 @@ function useScrolled(threshold = 8) {
   return scrolled
 }
 
-function Logo({ inverted = false }: { inverted?: boolean }) {
+export function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <span

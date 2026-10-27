@@ -74,15 +74,13 @@ export function TermsPage() {
           <div className="grid divide-y md:grid-cols-2 md:divide-x md:divide-y-0">
             <Clause number={1} title={sms.title}>
               <p>{sms.label}</p>
-              <ul className="grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+              <ul className="grid gap-x-6 gap-y-3 text-base leading-7 sm:grid-cols-2">
                 {sms.points.map((point) => (
-                  <li key={point} className="flex items-center gap-3">
-                    <span className="grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <li key={point} className="flex items-start gap-3">
+                    <span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
                       <Check className="size-3" aria-hidden />
                     </span>
-                    <span className="text-base text-foreground/85">
-                      {point}
-                    </span>
+                    <span className="text-foreground/85">{point}</span>
                   </li>
                 ))}
               </ul>
@@ -96,7 +94,7 @@ export function TermsPage() {
             <Clause number={2} title={consent.title}>
               <p>{consent.lines[0].text}</p>
               {/* Opt-out actions: one step smaller than the consent sentence */}
-              <div className="space-y-3 text-base text-foreground/85">
+              <div className="space-y-3 text-base leading-7 text-foreground/85">
                 {consent.lines.slice(1).map((line) => (
                   <p key={line.text}>
                     <Line {...line} />
