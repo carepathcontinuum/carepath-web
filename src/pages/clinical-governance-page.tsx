@@ -1,24 +1,11 @@
 import { ArrowRight } from 'lucide-react'
 import { Fragment } from 'react'
+import { KeyPhrase } from '@/components/key-phrase'
 import { PartnerCtaSection } from '@/components/home/partner-cta-section'
 import { PageTitle } from '@/components/page-title'
 import { Reveal } from '@/components/reveal'
 import { PageHeader } from '@/components/sections/page-header'
 import { flow, intro, pillars } from '@/content/clinical-governance'
-
-/** Highlights one phrase inside a sentence. */
-function KeyPhrase({ text, phrase }: { text: string; phrase: string }) {
-  const [before, after] = text.split(phrase)
-  return (
-    <>
-      {before}
-      <strong className="font-heading font-semibold text-primary">
-        {phrase}
-      </strong>
-      {after}
-    </>
-  )
-}
 
 export function ClinicalGovernancePage() {
   return (

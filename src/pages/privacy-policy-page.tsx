@@ -5,6 +5,7 @@ import {
   Footnote,
   KeywordLine,
 } from '@/components/legal'
+import { KeyPhrase } from '@/components/key-phrase'
 import { PageTitle } from '@/components/page-title'
 import { PageHeader } from '@/components/sections/page-header'
 import { site } from '@/config/site'
@@ -22,7 +23,9 @@ export function PrivacyPolicyPage() {
 
       <Clauses>
         <Clause number={1} total={4} title={collect.title}>
-          <p>{collect.lead}</p>
+          <p>
+            <KeyPhrase text={collect.lead} phrase={collect.key} />
+          </p>
         </Clause>
 
         <Clause number={2} total={4} title={use.title}>

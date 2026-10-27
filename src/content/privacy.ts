@@ -7,8 +7,11 @@ import photoSmall from '@/assets/images/privacy-exam-room-800.webp'
 
 export const intro = {
   title: 'Privacy Policy',
+  // Shortened on request (2026-10-27), like the other page headers. Live-site original: "At CarePath Continuum LLC,
+  // operating as CarePath Continuum, we take your privacy seriously and are committed to protecting your personal
+  // information."
   subtitle:
-    'At CarePath Continuum LLC, operating as CarePath Continuum, we take your privacy seriously and are committed to protecting your personal information.',
+    'We take your privacy seriously and protect your personal information.',
   image: {
     src: photoLarge,
     srcSet: `${photoSmall} 800w, ${photoLarge} 1600w`,
@@ -18,6 +21,7 @@ export const intro = {
 
 export const collect = {
   title: 'Information We Collect',
+  key: 'limited health-related and contact information',
   lead: 'As part of our mission to support patients after discharge, we may collect and store limited health-related and contact information to provide reminders, educational content, and support through our platform.',
 }
 
