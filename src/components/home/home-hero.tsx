@@ -14,17 +14,19 @@ export function HomeHero() {
     // Phone/tablet: photo fills the space above the text and fades into navy, so text never sits on the photo.
     // Desktop: navy text column on the left, clear photo on the right half.
     <section className="relative isolate -mt-18 flex min-h-svh flex-col bg-dark text-dark-foreground lg:justify-center lg:pt-18">
-      <div className="relative min-h-40 flex-1 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[42%] lg:-z-10">
+      <div className="relative min-h-40 flex-1 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[24%] lg:-z-10">
         <img
           src={hero.image.src}
           srcSet={hero.image.srcSet}
           sizes="(min-width: 1024px) 50vw, 100vw"
           alt={hero.image.alt}
           fetchPriority="high"
-          className="absolute inset-0 size-full object-cover object-[35%_25%] lg:object-[40%_center]"
+          className="absolute inset-0 size-full object-cover object-[35%_25%] lg:object-[0%_center]"
         />
         {/* Fade the photo into navy: upward from the text on phones, from the left edge on desktop */}
         <div className="absolute inset-0 fade-dark-t lg:fade-dark-r" />
+        {/* Desktop: light navy wash so the photo's bright highlights don't jump out against the solid navy */}
+        <div className="absolute inset-0 hidden bg-dark/15 lg:block" />
         {/* Phone: slight darkening at the top so the white header stays readable */}
         <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-dark/50 to-transparent lg:hidden" />
         {/* Desktop: darken the top so the white header text stays readable */}
