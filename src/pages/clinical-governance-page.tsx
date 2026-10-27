@@ -27,13 +27,17 @@ export function ClinicalGovernancePage() {
       <section className="py-12 sm:py-14 lg:py-16">
         <div className="container">
           {/* Three pillars split by hairlines; one column on phones */}
-          <ol className="grid divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+          <ol className="grid divide-y lg:grid-cols-3 lg:grid-rows-[auto_auto_1fr] lg:divide-x lg:divide-y-0">
             {pillars.map((pillar, i) => (
               <li
                 key={pillar.title}
-                className="py-8 first:pt-0 last:pb-0 lg:px-10 lg:py-0 lg:first:pl-0 lg:last:pr-0"
+                className="py-8 first:pt-0 last:pb-0 lg:row-span-3 lg:grid lg:grid-rows-subgrid lg:px-10 lg:py-0 lg:first:pl-0 lg:last:pr-0"
               >
-                <Reveal delay={i * 150}>
+                {/* Subgrid: number, title and text share rows across columns, so the text starts level */}
+                <Reveal
+                  delay={i * 150}
+                  className="lg:row-span-3 lg:grid lg:grid-rows-subgrid"
+                >
                   <span
                     aria-hidden
                     className="block font-heading text-5xl leading-none font-bold text-primary/20"
