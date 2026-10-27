@@ -56,5 +56,9 @@ export const matters = {
     'Readmissions are rarely driven by missing data.',
     'They occur when care plans fail after discharge.',
   ],
-  body: 'CarePath closes the execution gap RPM was never designed to solve.',
+  // The answer, split for the headline: first part large, second part a step smaller
+  body: [
+    'CarePath closes the execution gap',
+    'RPM was never designed to solve.',
+  ],
 }

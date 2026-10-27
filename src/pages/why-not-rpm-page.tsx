@@ -113,11 +113,19 @@ export function WhyNotRpmPage() {
           <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
             {matters.label}
           </p>
-          <p className="mt-4 max-w-3xl font-heading text-xl leading-snug font-semibold text-primary/45 sm:text-2xl">
-            {matters.title[0]} {matters.title[1]}
+          {/* Problem: one sentence per line, muted */}
+          <p className="mt-4 font-heading text-xl leading-snug font-semibold text-primary/45 sm:text-2xl">
+            <span className="block">{matters.title[0]}</span>
+            <span className="block">{matters.title[1]}</span>
           </p>
-          <h2 className="mt-6 max-w-4xl border-l-4 border-primary pl-5 font-heading text-3xl leading-tight font-bold tracking-tight text-primary sm:pl-6 sm:text-4xl xl:text-5xl">
-            {matters.body}
+          {/* Answer: the headline, with its second half one step smaller */}
+          <h2 className="mt-8 font-heading leading-tight font-bold tracking-tight text-primary">
+            <span className="block text-3xl sm:text-4xl xl:text-5xl">
+              {matters.body[0]}
+            </span>
+            <span className="mt-1 block text-2xl text-primary/70 sm:text-3xl">
+              {matters.body[1]}
+            </span>
           </h2>
         </Reveal>
       </section>
