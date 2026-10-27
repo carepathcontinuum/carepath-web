@@ -20,7 +20,7 @@ function Line({ text, keyword }: ConsentLine) {
   )
 }
 
-/** Numbered document section: number and title on the left on desktop, text on the right. */
+/** Numbered document section: a navy rule on top, number and title, then the text. */
 function Clause({
   number,
   title,
@@ -31,17 +31,17 @@ function Clause({
   children: ReactNode
 }) {
   return (
-    <section className="border-t py-10 first:border-t-0 first:pt-0 last:pb-0">
-      <Reveal className="grid gap-4 md:grid-cols-[14rem_1fr] md:gap-10">
-        <h2 className="text-xl leading-snug font-bold tracking-tight text-primary">
+    <Reveal delay={(number - 1) * 150}>
+      <section className="border-t-2 border-primary pt-6">
+        <h2 className="text-xl leading-snug font-bold tracking-tight text-primary sm:text-2xl">
           <span className="mr-2 text-primary/40">{number}.</span>
           {title}
         </h2>
-        <div className="space-y-4 leading-relaxed text-foreground/85">
+        <div className="mt-5 space-y-4 leading-relaxed text-foreground/85">
           {children}
         </div>
-      </Reveal>
-    </section>
+      </section>
+    </Reveal>
   )
 }
 
@@ -49,11 +49,16 @@ export function TermsPage() {
   return (
     <>
       <PageTitle title="Terms & Conditions" />
-      <PageHeader title={intro.title} subtitle={intro.subtitle} />
+      <PageHeader
+        title={intro.title}
+        subtitle={intro.subtitle}
+        image={intro.image}
+      />
 
       <Section>
+        {/* Two short clauses, side by side from 768px */}
         <div className="container">
-          <div className="max-w-4xl">
+          <div className="grid gap-12 md:grid-cols-2 lg:gap-16">
             <Clause number={1} title={sms.title}>
               <p>{sms.label}</p>
               <ul className="list-disc space-y-1.5 pl-5 marker:text-primary/50">

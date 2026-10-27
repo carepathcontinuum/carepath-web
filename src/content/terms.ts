@@ -1,3 +1,6 @@
+import photoLarge from '@/assets/images/terms-sms-1600.webp'
+import photoSmall from '@/assets/images/terms-sms-800.webp'
+
 // Copy is from the live site (docs/research/carepath-crawl/terms-and-conditions.txt). The live page prints the
 // text twice; we keep the fuller second copy once. Don't rewrite sentences.
 
@@ -5,6 +8,11 @@ export const intro = {
   title: 'Terms & Conditions',
   subtitle:
     'By enrolling in CarePath Continuum (“CarePath”), you agree to receive SMS messages related to your care.',
+  image: {
+    src: photoLarge,
+    srcSet: `${photoSmall} 800w, ${photoLarge} 1600w`,
+    alt: 'Nurse checking blood pressure of a male patient in hospital bed.',
+  },
 }
 
 export const sms = {
