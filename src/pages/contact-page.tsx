@@ -60,6 +60,7 @@ export function ContactPage() {
                     id="name"
                     name="name"
                     autoComplete="name"
+                    placeholder={form.namePlaceholder}
                     className={field}
                   />
                 </div>
@@ -73,6 +74,7 @@ export function ContactPage() {
                     name="email"
                     type="email"
                     autoComplete="email"
+                    placeholder={form.emailPlaceholder}
                     required
                     className={field}
                   />
@@ -87,15 +89,9 @@ export function ContactPage() {
                     name="interest"
                     required
                     rows={5}
-                    aria-describedby="interest-hint"
+                    placeholder={form.interestPlaceholder}
                     className="min-h-36 bg-card px-4 py-3 text-base md:text-base"
                   />
-                  <p
-                    id="interest-hint"
-                    className="text-sm text-muted-foreground"
-                  >
-                    {form.interestHint}
-                  </p>
                 </div>
                 <Button type="submit" size="xl" className="w-full sm:w-auto">
                   {form.submit}
@@ -109,7 +105,10 @@ export function ContactPage() {
             delay={150}
             className="border-t pt-10 md:border-t-0 md:pt-0 md:pl-12 lg:pl-16"
           >
-            <p className="-mt-1.5 text-lg leading-relaxed text-foreground/75">
+            <p className="-mt-1.5 font-heading text-xl leading-snug font-bold tracking-tight text-balance text-primary">
+              {aside.partners}
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-foreground/75">
               {aside.note}
             </p>
             <div className="mt-8 border-t pt-8">
