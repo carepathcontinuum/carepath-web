@@ -58,7 +58,7 @@ export function HomeHero() {
               asChild
               variant="outline"
               size="xl"
-              className="border-white/40 bg-transparent text-dark-foreground hover:bg-white/10 hover:text-dark-foreground"
+              className="border-white/40 bg-transparent text-dark-foreground"
             >
               <Link to={hero.secondaryCta.to}>{hero.secondaryCta.label}</Link>
             </Button>
