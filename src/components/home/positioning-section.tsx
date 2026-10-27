@@ -37,42 +37,44 @@ export function PositioningSection() {
 
         {/* Layer diagram: three stacked layers joined by a dashed spine */}
         <Reveal delay={150}>
-          <ol className="relative space-y-4">
+          <div className="relative">
             <span
               aria-hidden
               className="absolute inset-y-6 left-1/2 w-px -translate-x-1/2 border-l-2 border-dashed border-primary/25"
             />
-            {positioning.layers.map((layer) => (
-              <li
-                key={layer.title}
-                className={cn(
-                  'relative rounded-2xl border px-6 py-5 text-center',
-                  layer.highlight
-                    ? 'border-transparent bg-primary py-7 text-primary-foreground shadow-xl sm:scale-105'
-                    : 'bg-card',
-                )}
-              >
-                <p
+            <ol className="relative space-y-4">
+              {positioning.layers.map((layer) => (
+                <li
+                  key={layer.title}
                   className={cn(
-                    'font-heading font-bold',
-                    layer.highlight ? 'text-2xl' : 'text-lg text-primary',
-                  )}
-                >
-                  {layer.title}
-                </p>
-                <p
-                  className={cn(
-                    'mt-1',
+                    'relative rounded-2xl border px-6 py-5 text-center',
                     layer.highlight
-                      ? 'text-highlight'
-                      : 'text-sm text-muted-foreground',
+                      ? 'border-transparent bg-primary py-7 text-primary-foreground shadow-xl sm:scale-105'
+                      : 'bg-card',
                   )}
                 >
-                  {layer.body}
-                </p>
-              </li>
-            ))}
-          </ol>
+                  <p
+                    className={cn(
+                      'font-heading font-bold',
+                      layer.highlight ? 'text-2xl' : 'text-lg text-primary',
+                    )}
+                  >
+                    {layer.title}
+                  </p>
+                  <p
+                    className={cn(
+                      'mt-1',
+                      layer.highlight
+                        ? 'text-highlight'
+                        : 'text-sm text-muted-foreground',
+                    )}
+                  >
+                    {layer.body}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </Reveal>
       </div>
     </Section>
