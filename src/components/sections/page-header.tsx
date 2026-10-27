@@ -36,7 +36,7 @@ export function PageHeader({ title, subtitle, aside, image }: PageHeaderProps) {
         </>
       )}
       {image && (
-        <div className="relative h-64 sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[30%] lg:-z-10 lg:h-auto">
+        <div className="relative h-64 sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[38%] lg:-z-10 lg:h-auto">
           <img
             src={image.src}
             srcSet={image.srcSet}
