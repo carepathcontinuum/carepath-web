@@ -24,7 +24,7 @@ export function ProblemSection() {
           <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
             {problem.leavesWith}
           </p>
-          <ul className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-10">
+          <ul className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-16">
             {problem.items.map((item) => (
               <li
                 key={item}
