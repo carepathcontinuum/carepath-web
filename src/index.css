@@ -1,0 +1,170 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/montserrat';
+@import '@fontsource/lato/400.css';
+@import '@fontsource/lato/700.css';
+
+/* Class-based so dark: utilities in shadcn components never follow the OS setting. The site is light-only. */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design tokens: the single source of the theme (see docs/decisions/project-decisions.md).
+ * Components use the Tailwind utilities these map to (bg-primary, text-highlight, font-heading…), never raw values.
+ */
+:root {
+  /* Brand */
+  --primary: #272b61; /* CarePath navy */
+  --primary-foreground: #ffffff;
+  --highlight: #aab1e6; /* light navy: highlights and hovers on dark backgrounds only (7.8:1 on --dark) */
+  --dark: #1a1d45; /* dark bands, footer */
+  --dark-foreground: #ffffff;
+  --dark-muted-foreground: #b8bcd6;
+
+  /* Surfaces */
+  --background: #f8f9fc;
+  --foreground: #1a1d45;
+  --card: #ffffff;
+  --card-foreground: #1a1d45;
+  --popover: #ffffff;
+  --popover-foreground: #1a1d45;
+  --secondary: #eceef6; /* tinted section background */
+  --secondary-foreground: #272b61;
+  --muted: #eef0f5;
+  --muted-foreground: #5b6178;
+  --accent: #eceef6; /* shadcn hover/active surface */
+  --accent-foreground: #272b61;
+  --destructive: #c0352b;
+
+  /* Lines and focus */
+  --border: #e0e2ec;
+  --input: #e0e2ec;
+  --ring: #4a5096;
+
+  /* Shape */
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Montserrat Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Motion: smooth ease-out (quint), see project decisions */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --default-transition-duration: 400ms;
+  --default-transition-timing-function: var(--ease-smooth);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-highlight: var(--highlight);
+  --color-dark: var(--dark);
+  --color-dark-foreground: var(--dark-foreground);
+  --color-dark-muted-foreground: var(--dark-muted-foreground);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Eased fades from navy into a photo. Opacity follows an ease-out curve, so there is no visible edge. */
+@utility fade-dark-r {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--dark) 100%, transparent) 0%,
+    color-mix(in srgb, var(--dark) 96%, transparent) 6%,
+    color-mix(in srgb, var(--dark) 88%, transparent) 12%,
+    color-mix(in srgb, var(--dark) 76%, transparent) 18%,
+    color-mix(in srgb, var(--dark) 62%, transparent) 24%,
+    color-mix(in srgb, var(--dark) 47%, transparent) 30%,
+    color-mix(in srgb, var(--dark) 33%, transparent) 36%,
+    color-mix(in srgb, var(--dark) 21%, transparent) 42%,
+    color-mix(in srgb, var(--dark) 11%, transparent) 48%,
+    color-mix(in srgb, var(--dark) 5%, transparent) 54%,
+    color-mix(in srgb, var(--dark) 1%, transparent) 60%,
+    color-mix(in srgb, var(--dark) 0%, transparent) 66%
+  );
+}
+@utility fade-dark-t {
+  background-image: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--dark) 100%, transparent) 0%,
+    color-mix(in srgb, var(--dark) 96%, transparent) 7%,
+    color-mix(in srgb, var(--dark) 88%, transparent) 14%,
+    color-mix(in srgb, var(--dark) 76%, transparent) 20%,
+    color-mix(in srgb, var(--dark) 62%, transparent) 27%,
+    color-mix(in srgb, var(--dark) 47%, transparent) 34%,
+    color-mix(in srgb, var(--dark) 33%, transparent) 41%,
+    color-mix(in srgb, var(--dark) 21%, transparent) 48%,
+    color-mix(in srgb, var(--dark) 11%, transparent) 54%,
+    color-mix(in srgb, var(--dark) 5%, transparent) 61%,
+    color-mix(in srgb, var(--dark) 1%, transparent) 68%,
+    color-mix(in srgb, var(--dark) 0%, transparent) 75%
+  );
+}
+
+/* Page-width wrapper used by every section: centered, 16px gutter on phones. */
+@utility container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-inline: 1rem;
+  @variant sm {
+    padding-inline: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth font-sans antialiased;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-balance;
+  }
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Respect users who ask for less motion: kill animations, transitions and smooth scroll site-wide. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
