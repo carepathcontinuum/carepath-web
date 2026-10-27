@@ -38,9 +38,9 @@ export const hero = {
 // "Patients leave with the right medications, the right follow-ups, and the right instructions—and we assume
 // everything happens." / "It doesn't."
 export const problem = {
-  eyebrow: 'The gap after discharge',
-  title:
-    'Healthcare is built for planning, not for what happens after discharge.',
+  eyebrow: 'Healthcare today',
+  // Shown as a contrast: the second line is faded, so the gap is visible
+  title: ['Built for planning.', 'Not for after discharge.'],
   leavesWith: 'Patients leave with the right:',
   items: ['Medications', 'Follow-ups', 'Instructions'],
   assumption: 'We assume the rest happens.',

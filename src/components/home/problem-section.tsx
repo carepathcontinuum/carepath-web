@@ -16,12 +16,15 @@ export function ProblemSection() {
             {problem.eyebrow}
           </p>
           <h2 className="mt-4 font-heading text-3xl leading-tight font-bold tracking-tight text-primary sm:text-4xl xl:text-5xl">
-            {problem.title}
+            <span className="block">{problem.title[0]}</span>
+            <span className="block text-primary/35">{problem.title[1]}</span>
           </h2>
         </Reveal>
 
         <Reveal delay={150} className="lg:pl-16">
-          <p className="text-muted-foreground">{problem.leavesWith}</p>
+          <p className="text-lg text-foreground/75 sm:text-xl">
+            {problem.leavesWith}
+          </p>
           <ul className="mt-4 flex flex-wrap gap-3">
             {problem.items.map((item) => (
               <li
