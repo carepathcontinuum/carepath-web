@@ -18,8 +18,13 @@ export function StepsSection() {
           <li key={step.id} id={step.id} className="scroll-mt-24">
             <Reveal>
               {/* Mild navy-tinted card; photo fills the top (phones) or right edge (desktop) */}
-              <div className="grid overflow-hidden rounded-2xl bg-secondary lg:grid-cols-12">
-                <div className="p-6 sm:p-8 lg:col-span-7">
+              <div className="grid overflow-hidden rounded-2xl bg-secondary lg:min-h-96 lg:grid-cols-12">
+                <div className="group/text relative isolate flex flex-col justify-center p-6 sm:p-8 lg:col-span-7 lg:p-10">
+                  {/* Hover tint: a circle that grows evenly from the centre */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 -z-10 bg-primary/8 transition-[clip-path] duration-1200 ease-smooth [clip-path:circle(0_at_50%_50%)] group-hover/text:[clip-path:circle(75%_at_50%_50%)]"
+                  />
                   <span
                     aria-hidden
                     className="block font-heading text-5xl leading-none font-bold text-primary/20"
