@@ -1,10 +1,3 @@
-import {
-  ClipboardList,
-  HeartPulse,
-  Radar,
-  ShieldCheck,
-  type LucideIcon,
-} from 'lucide-react'
 import betweenVisitLarge from '@/assets/images/between-visit-care-1600.webp'
 import betweenVisitSmall from '@/assets/images/between-visit-care-800.webp'
 import activationLarge from '@/assets/images/care-plan-activation-1600.webp'
@@ -28,7 +21,6 @@ export const intro = {
 export type Step = {
   /** Anchor for the overview links in the page header */
   id: string
-  icon: LucideIcon
   title: string
   lead: string
   label: string
@@ -39,7 +31,6 @@ export type Step = {
 export const steps: Step[] = [
   {
     id: 'activation',
-    icon: ClipboardList,
     title: 'Care Plan Activation',
     lead: 'Physician orders are translated into a structured daily care pathway patients can understand and follow.',
     label: 'Patients receive:',
@@ -57,7 +48,6 @@ export const steps: Step[] = [
   },
   {
     id: 'between-visit',
-    icon: HeartPulse,
     title: 'Between-Visit Care Execution',
     lead: 'CarePath™ supports patients in executing the care plan in their real-life environment.',
     label: 'This includes:',
@@ -75,7 +65,6 @@ export const steps: Step[] = [
   },
   {
     id: 'risk-detection',
-    icon: Radar,
     title: 'Early Risk Detection',
     lead: 'Subtle signs of deterioration often appear days before a clinical crisis.',
     label: 'CarePath identifies early warning signals such as:',
@@ -92,7 +81,6 @@ export const steps: Step[] = [
   },
   {
     id: 'escalation',
-    icon: ShieldCheck,
     title: 'Nurse-Governed Escalation',
     lead: 'When risks appear, CarePath enables structured clinical escalation to care teams before deterioration progresses.',
     label: 'This ensures:',
