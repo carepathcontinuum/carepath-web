@@ -15,12 +15,7 @@ export function PartnerCtaSection() {
       <Glow className="-top-24 -left-24" />
       <div className="container grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
         <Reveal>
-          <p className="inline-flex items-center gap-2 font-heading text-xs font-bold tracking-[0.2em] text-highlight uppercase">
-            {/* Live status dot */}
-            <span className="relative flex size-2">
-              <span className="absolute inset-0 rounded-full bg-highlight motion-safe:animate-ping" />
-              <span className="relative size-2 rounded-full bg-highlight" />
-            </span>
+          <p className="font-heading text-xs font-bold tracking-[0.2em] text-highlight uppercase">
             {partnerCta.eyebrow}
           </p>
           <h2 className="mt-4 max-w-2xl font-heading text-3xl leading-tight font-bold tracking-tight sm:text-4xl xl:text-5xl">
