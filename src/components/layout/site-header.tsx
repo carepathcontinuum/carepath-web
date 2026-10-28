@@ -1,4 +1,4 @@
-import { ArrowRight, Menu, Route, X } from 'lucide-react'
+import { ArrowRight, Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'
 import { Button } from '@/components/ui/button'
@@ -35,6 +35,24 @@ function useScrolled(threshold = 8) {
   return scrolled
 }
 
+/**
+ * The CarePath mark: an open "C" (care that continues) with a dot in the gap (the patient, still on the path
+ * after discharge). currentColor, so it follows the tile. Same shapes as public/favicon.svg.
+ */
+function LogoMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <path
+        d="M17.66 6.34A8 8 0 1 0 17.66 17.66"
+        stroke="currentColor"
+        strokeWidth="2.75"
+        strokeLinecap="round"
+      />
+      <circle cx="20.25" cy="12" r="1.9" fill="currentColor" />
+    </svg>
+  )
+}
+
 export function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
@@ -46,7 +64,7 @@ export function Logo({ inverted = false }: { inverted?: boolean }) {
             : 'bg-primary text-primary-foreground',
         )}
       >
-        <Route className="size-5" aria-hidden />
+        <LogoMark className="size-5" />
       </span>
       <span className="font-heading text-lg leading-none tracking-tight whitespace-nowrap">
         <span className="font-bold">CarePath</span>{' '}
