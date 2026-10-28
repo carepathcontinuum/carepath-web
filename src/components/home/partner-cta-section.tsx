@@ -1,6 +1,5 @@
 import { ArrowRight, Mail } from 'lucide-react'
 import { Link } from 'react-router'
-import { Glow } from '@/components/glow'
 import { Reveal } from '@/components/reveal'
 import { Section } from '@/components/sections/section'
 import { Button } from '@/components/ui/button'
@@ -10,14 +9,7 @@ import { partnerCta } from '@/content/home'
 /** Closing call to action at the end of the page: headline and context on the left, actions on the right. */
 export function PartnerCtaSection() {
   return (
-    <Section tone="dark" className="relative isolate overflow-hidden">
-      {/* One glow only, top-left: a bottom glow is cut off at the band edge and shows a seam above the footer */}
-      <Glow className="-top-24 -left-24" />
-      {/* On phones the glow reaches the bottom edge; fade back to plain navy so no seam shows above the footer */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-dark to-transparent"
-      />
+    <Section tone="dark">
       <div className="container grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
         <Reveal>
           <p className="font-heading text-xs font-bold tracking-[0.2em] text-highlight uppercase">
