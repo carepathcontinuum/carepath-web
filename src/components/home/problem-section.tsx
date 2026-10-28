@@ -4,7 +4,7 @@ import { problem } from '@/content/home'
 
 /**
  * Reads top to bottom: headline → what patients leave with (3 ticks in a row) → the conclusion.
- * Centred throughout; the ticks sit in one centred row (stacked on phones).
+ * Centred throughout; the ticks sit in one centred row (on phones: a centred, left-aligned column so the ticks line up).
  * Type steps: 48px headline → 40px punchline → 20px items (Montserrat) / lead-in (Lato) → 12px caps label.
  */
 export function ProblemSection() {
@@ -24,7 +24,7 @@ export function ProblemSection() {
           <p className="font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
             {problem.leavesWith}
           </p>
-          <ul className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-16 xl:gap-x-28">
+          <ul className="mx-auto mt-4 flex w-fit flex-col items-start gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-16 xl:gap-x-28">
             {problem.items.map((item) => (
               <li
                 key={item}

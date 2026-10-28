@@ -1,7 +1,6 @@
 import { ArrowRight, Menu, Route, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'
-import { Glow } from '@/components/glow'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
@@ -125,24 +124,23 @@ export function SiteHeader() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            {/* Mobile menu: navy panel in the site's style (Montserrat, numbered links, hairlines). Full width on phones, 384px from 640px. */}
+            {/* Mobile menu: white panel (Montserrat links, hairlines). 85% wide on phones so the page shows behind it, 384px max. */}
             <SheetContent
               side="right"
               showCloseButton={false}
-              className="isolate gap-0 overflow-hidden border-l-0 bg-dark p-0 text-dark-foreground data-[side=right]:w-full data-[side=right]:sm:max-w-sm"
+              className="gap-0 overflow-hidden p-0 data-[side=right]:w-[85%] data-[side=right]:max-w-sm"
             >
-              <Glow className="-top-24 -right-24" />
               <div className="flex h-18 items-center justify-between px-6">
-                <SheetTitle className="text-dark-foreground">
+                <SheetTitle className="text-primary">
                   <Link to="/" onClick={closeMenu}>
-                    <Logo inverted />
+                    <Logo />
                   </Link>
                 </SheetTitle>
                 <SheetClose asChild>
                   <Button
                     variant="ghost"
                     size="icon-lg"
-                    className="text-dark-foreground hover:bg-white/10 hover:text-dark-foreground"
+                    className="text-primary hover:bg-secondary"
                   >
                     <X className="size-6" />
                     <span className="sr-only">Close menu</span>
@@ -151,22 +149,19 @@ export function SiteHeader() {
               </div>
 
               <nav aria-label="Main" className="mt-4 px-6">
-                <ul className="border-b border-white/10">
-                  {headerNav.map((item, i) => (
-                    <li key={item.to} className="border-t border-white/10">
+                <ul className="border-b">
+                  {headerNav.map((item) => (
+                    <li key={item.to} className="border-t">
                       <NavLink
                         to={item.to}
                         onClick={closeMenu}
                         className={({ isActive }) =>
                           cn(
-                            'group flex items-baseline gap-3 py-5 font-heading text-lg font-bold tracking-tight transition-colors hover:text-highlight',
-                            isActive && 'text-highlight',
+                            'block py-4 font-heading text-lg font-semibold tracking-tight transition-colors hover:text-primary',
+                            isActive ? 'text-primary' : 'text-primary/70',
                           )
                         }
                       >
-                        <span className="w-5 shrink-0 font-heading text-xs font-bold text-highlight/60 tabular-nums">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
                         {item.label}
                       </NavLink>
                     </li>
@@ -175,13 +170,13 @@ export function SiteHeader() {
               </nav>
 
               <div className="mt-auto space-y-6 px-6 pb-8">
-                <Button asChild variant="inverse" size="xl" className="w-full">
+                <Button asChild size="xl" className="w-full">
                   <Link to="/contact" onClick={closeMenu}>
                     Let’s talk
                     <ArrowRight />
                   </Link>
                 </Button>
-                <div className="space-y-3 font-heading text-sm font-medium text-dark-muted-foreground">
+                <div className="space-y-3 font-heading text-sm font-medium text-muted-foreground">
                   <a href={`mailto:${site.email}`} className="block w-fit">
                     {site.email}
                   </a>
@@ -191,7 +186,7 @@ export function SiteHeader() {
                         key={item.to}
                         to={item.to}
                         onClick={closeMenu}
-                        className="transition-colors hover:text-highlight"
+                        className="transition-colors hover:text-primary"
                       >
                         {item.label}
                       </Link>

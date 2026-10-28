@@ -24,7 +24,7 @@ export function PageHeader({ title, subtitle, aside, image }: PageHeaderProps) {
       className={cn(
         'relative isolate -mt-18 overflow-hidden bg-dark text-dark-foreground',
         image
-          ? 'flex flex-col lg:min-h-[30rem] lg:justify-center lg:pt-18'
+          ? 'flex flex-col lg:min-h-120 lg:justify-center lg:pt-18'
           : 'pt-18',
       )}
     >

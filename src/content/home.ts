@@ -106,28 +106,39 @@ export type Leader = {
   name: string
   role: string
   photo: string
+  /** Card text, condensed from the bio. The full bio opens in a side panel. */
+  summary: string
   bio: string[]
 }
 
-export const leadership: { title: string; leaders: Leader[] } = {
+export const leadership: {
+  eyebrow: string
+  title: string
+  leaders: Leader[]
+} = {
+  eyebrow: 'The team behind CarePath',
   title: 'Leadership',
   leaders: [
     {
       name: 'Katherine Owen, RN, BSN, MHA',
       role: 'Founder & CEO, CarePath Continuum',
       photo: katherineOwen,
+      summary:
+        'Nurse leader and healthcare executive with 20+ years in clinical operations, patient safety, and care transformation. She founded CarePath to make sure care plans are followed after discharge.',
       bio: [
         'Katherine Owen is a senior healthcare executive and nurse leader with over 20 years of experience driving clinical operations, patient safety, and care transformation across acute care, ambulatory, and surgical settings.',
         'Throughout her career, Katherine has built a reputation for translating frontline clinical realities into scalable system solutions. She has led large, complex teams, implemented enterprise safety and quality programs, and designed innovative care models that elevate care to the top of license while improving outcomes and operational efficiency. Her work includes establishing centralized triage models, launching system-wide patient safety infrastructure, and implementing clinical best practices that have significantly improved performance across organizations.',
         'Katherine began her career at Parkland Health & Hospital System, where she contributed to major care delivery innovations, including expanding access to specialty services and supporting the operationalization of high-impact programs such as outpatient antimicrobial therapy (OPAT). She has also held leadership roles in inpatient hospital settings and ambulatory surgery centers, where she led high-performing teams and drove measurable improvements in throughput, patient experience, and operational efficiency.',
-        'She is the Founder and CEO of CarePath Continuum, a health technology company focused on solving one of healthcare’s most overlooked challenges: execution after discharge. CarePath extends nurse-led governance beyond the hospital setting, ensuring that care plans are not only created—but followed. By introducing structured workflows, real-time patient engagement, and a novel Execution Reliability Score (ERS), CarePath brings visibility and accountability to the critical 30-day post-discharge period.',
-        'Katherine’s work is grounded in a simple but powerful belief: care does not end at discharge—and outcomes depend on what happens next.',
+        'She is the Founder and CEO of CarePath Continuum, a health technology company focused on solving one of healthcare’s most overlooked challenges: execution after discharge. CarePath extends nurse-led governance beyond the hospital setting, ensuring that care plans are not only created, but followed. By introducing structured workflows, real-time patient engagement, and a novel Execution Reliability Score (ERS), CarePath brings visibility and accountability to the critical 30-day post-discharge period.',
+        'Katherine’s work is grounded in a simple but powerful belief: care does not end at discharge, and outcomes depend on what happens next.',
       ],
     },
     {
       name: 'DeAnna Boate',
       role: 'Co-Founder, Strategy & Growth',
       photo: deannaBoate,
+      summary:
+        'Executive coach and strategist with 30+ years across healthcare, nonprofit, and public sectors. Former health system Strategy Officer and Chief of Staff, and a Fellow of the American College of Healthcare Executives.',
       bio: [
         'DeAnna Boate is an executive career coach and strategic leader with more than 30 years of experience driving strategy and organizational performance across healthcare, nonprofit, and public sectors. She specializes in developing high-performing leaders, guiding boards and C-suite executives, and designing strategies with measurable impact.',
         'Her career includes serving as Strategy Officer and Chief of Staff to the CEO for a large public health system, where she led initiatives tied to over $1 billion in funding and major system expansion projects. She has also held executive roles guiding strategic transformation efforts that influenced $100+ million in funding to improve health outcomes across a 74-county region.',
@@ -140,13 +151,24 @@ export const leadership: { title: string; leaders: Leader[] } = {
 }
 
 export const notMonitoring = {
-  eyebrow: 'CarePath Continuum LLC is not another monitoring tool',
-  lines: [
-    'Monitoring and care management provide data and visibility.',
-    'But data alone does not ensure care plans are followed.',
-    'CarePath translates care plans into simple daily actions—with nurse oversight and early risk detection.',
-    'It is the execution layer that makes monitoring effective.',
-  ],
+  // Rewritten on request ("looks AI generated"; new copy allowed). Originals:
+  // "CarePath Continuum LLC is not another monitoring tool" / "Monitoring and care management provide data and
+  // visibility." / "But data alone does not ensure care plans are followed." / "CarePath translates care plans into
+  // simple daily actions—with nurse oversight and early risk detection." / "It is the execution layer that makes
+  // monitoring effective."
+  eyebrow: 'Monitoring vs. execution',
+  title: ['Not another', 'monitoring tool.'],
+  monitoring: {
+    label: 'Monitoring',
+    lead: 'Tells you what happened.',
+    body: 'Readings, alerts and dashboards. Useful, but none of it makes sure the care plan gets followed.',
+  },
+  carepath: {
+    label: 'CarePath',
+    lead: 'Makes sure the plan happens.',
+    body: 'Each care plan becomes a few simple steps a day, with a nurse watching for early signs of risk.',
+    conclusion: 'The layer that makes monitoring worth having.',
+  },
 }
 
 export type Outcome = {
@@ -156,62 +178,100 @@ export type Outcome = {
   stat?: string
 }
 
-export const outcomes: { title: string; items: Outcome[] } = {
+export const outcomes: {
+  eyebrow: string
+  title: string
+  cta: { label: string; to: string }
+  items: Outcome[]
+} = {
+  // Copy rewritten on request (plainer, shorter); originals: "Improved Continuity of Care" / "Care doesn’t end at
+  // discharge—but execution often does. CarePath helps patients follow structured, daily actions at home, closing the
+  // gap between visits." · "Reduced Avoidable Utilization" / "Early visibility into execution allows care teams to
+  // intervene before small issues escalate into ED visits or readmissions." · "Provider & Care Team Relief" /
+  // "Nurse-governed workflows support patients without increasing inbox volume, visit burden, or clinician fatigue." ·
+  // "The Cost of Inaction" / "$50B+ in annual readmission costs—and still no visibility into whether care plans are
+  // being executed at home."
+  eyebrow: 'What changes',
   title: 'Outcomes That Matter',
+  cta: { label: 'See the outcomes', to: '/outcomes' },
   items: [
     {
       icon: Repeat,
-      title: 'Improved Continuity of Care',
-      body: 'Care doesn’t end at discharge—but execution often does. CarePath helps patients follow structured, daily actions at home, closing the gap between visits.',
+      title: 'Care that continues at home',
+      body: 'Patients get a few simple steps each day between visits, so the plan doesn’t stop at the hospital door.',
     },
     {
       icon: TrendingDown,
-      title: 'Reduced Avoidable Utilization',
-      body: 'Early visibility into execution allows care teams to intervene before small issues escalate into ED visits or readmissions.',
+      title: 'Fewer avoidable readmissions',
+      body: 'Care teams see problems early and step in before they turn into an ED visit or a readmission.',
     },
     {
       icon: HeartHandshake,
-      title: 'Provider & Care Team Relief',
-      body: 'Nurse-governed workflows support patients without increasing inbox volume, visit burden, or clinician fatigue.',
+      title: 'Less load on care teams',
+      body: 'Nurse-led follow-up supports patients without adding to inboxes, visit load or clinician fatigue.',
     },
     {
       icon: TriangleAlert,
-      title: 'The Cost of Inaction',
+      title: 'The cost of inaction',
       stat: '$50B+',
-      body: 'in annual readmission costs—and still no visibility into whether care plans are being executed at home.',
+      body: 'spent on readmissions every year, with no way to see whether care plans are followed at home.',
     },
   ],
 }
 
 export const partners = {
+  // Copy tightened on request (same meaning). Originals: lead "CarePath Continuum LLC is the only model that partners
+  // with both the patient and the system—ensuring plans are not just prescribed, but executed." · "Patients — because
+  // execution starts at home": "CarePath partners directly with patients to turn care plans into daily, actionable
+  // steps—not just instructions." / "We provide structure, guidance, and real-time feedback so patients can own their
+  // care, not just be told what to do." / "Because after discharge, the outcome depends on one thing: whether the plan
+  // is actually carried out." · "Care Teams & Organizations — because outcomes require visibility": "We work alongside
+  // organizations responsible for post-discharge outcomes, providing visibility into execution and enabling early,
+  // governed intervention when patients begin to deviate." · "CarePath integrates without disruption across:"
+  eyebrow: 'Two partners, one plan',
   title: 'Who We Partner With',
-  lead: 'CarePath Continuum LLC is the only model that partners with both the patient and the system—ensuring plans are not just prescribed, but executed.',
+  lead: 'CarePath is the only model that works with both the patient and the system, so care plans get carried out, not just prescribed.',
   patients: {
     icon: Home,
-    title: 'Patients — because execution starts at home',
-    body: [
-      'CarePath partners directly with patients to turn care plans into daily, actionable steps—not just instructions.',
-      'We provide structure, guidance, and real-time feedback so patients can own their care, not just be told what to do.',
-      'Because after discharge, the outcome depends on one thing: whether the plan is actually carried out.',
+    label: 'Patients',
+    title: 'Execution starts at home.',
+    body: 'We work with patients directly and turn their care plan into steps they can follow every day.',
+    points: [
+      'Daily, actionable steps, not just instructions',
+      'Structure, guidance and real-time feedback',
+      'Patients own their care, not just follow orders',
     ],
+    closing:
+      'After discharge, the outcome depends on one thing: whether the plan is actually carried out.',
   },
   organizations: {
     icon: Building2,
-    title: 'Care Teams & Organizations — because outcomes require visibility',
-    body: [
-      'We work alongside organizations responsible for post-discharge outcomes, providing visibility into execution and enabling early, governed intervention when patients begin to deviate.',
-    ],
-    listIntro: 'CarePath integrates without disruption across:',
+    label: 'Care teams & organizations',
+    title: 'Outcomes need visibility.',
+    body: 'See how every plan is going after discharge, with an early, governed flag when a patient starts to drift.',
+    listIntro: 'Works with what you already have, across',
+    // Name + detail, so every item is two lines. Originals: "Health systems & hospitals", "Health plans & payers",
+    // "Accountable Care Organizations (ACOs)", "Medical groups & value-based care organizations",
+    // "Post-acute providers (SNF, home health, rehab)", "Population health & care management teams".
     list: [
-      { icon: Hospital, label: 'Health systems & hospitals' },
-      { icon: ShieldCheck, label: 'Health plans & payers' },
-      { icon: Network, label: 'Accountable Care Organizations (ACOs)' },
+      { icon: Hospital, name: 'Health systems', detail: 'and hospitals' },
+      { icon: ShieldCheck, name: 'Health plans', detail: 'and payers' },
+      { icon: Network, name: 'ACOs', detail: 'Accountable Care Organizations' },
       {
         icon: Stethoscope,
-        label: 'Medical groups & value-based care organizations',
+        name: 'Medical groups',
+        detail: 'and value-based care',
       },
-      { icon: Home, label: 'Post-acute providers (SNF, home health, rehab)' },
-      { icon: Users, label: 'Population health & care management teams' },
-    ] satisfies { icon: LucideIcon; label: string }[],
+      {
+        icon: Home,
+        name: 'Post-acute providers',
+        detail: 'SNF, home health, rehab',
+      },
+      {
+        icon: Users,
+        name: 'Care management',
+        detail: 'and population health teams',
+      },
+    ] satisfies { icon: LucideIcon; name: string; detail: string }[],
   },
 }
