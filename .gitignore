@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# graphify: per-machine parse cache (rebuilt by `graphify update .`)
+graphify-out/cache/
