@@ -5,8 +5,8 @@ import { positioning } from '@/content/home'
 import { cn } from '@/lib/utils'
 
 /**
- * Left: contrast headline (faded → solid) and two points. Right: a layer diagram that shows what
- * "infrastructure" means: CarePath sits between existing care and the patient's home. Stacks on phones.
+ * Left: contrast headline (faded → solid) and two points. Right: a layer diagram that shows
+ * where CarePath sits: between existing care and the patient's home. Stacks on phones.
  */
 export function PositioningSection() {
   return (
@@ -17,7 +17,10 @@ export function PositioningSection() {
             <span className="block text-primary/35">
               {positioning.title[0]}
             </span>
-            <span className="block">{positioning.title[1]}</span>
+            {/* One word now ("infrastructure" dropped on request, 2026-11-09), so it gets a size step to carry the weight */}
+            <span className="mt-1 block text-5xl sm:text-6xl xl:text-7xl">
+              {positioning.title[1]}
+            </span>
           </h2>
           <div className="mt-8 space-y-6 border-t border-primary/10 pt-8">
             {positioning.points.map(({ title, body }) => (

@@ -122,7 +122,7 @@ export function SiteHeader() {
             className="hidden px-4 sm:inline-flex"
           >
             <Link to="/contact">
-              Let’s talk
+              Discuss a Pilot
               <ArrowRight />
             </Link>
           </Button>
@@ -190,7 +190,7 @@ export function SiteHeader() {
               <div className="mt-auto space-y-6 px-6 pb-8">
                 <Button asChild size="xl" className="w-full">
                   <Link to="/contact" onClick={closeMenu}>
-                    Let’s talk
+                    Discuss a Pilot
                     <ArrowRight />
                   </Link>
                 </Button>

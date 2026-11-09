@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   Stethoscope,
   TrendingDown,
-  TriangleAlert,
   Users,
   type LucideIcon,
 } from 'lucide-react'
@@ -19,13 +18,17 @@ import katherineOwen from '@/assets/images/katherine-owen.webp'
 
 // Copy is from the live site (docs/research/carepath-crawl/home.txt). Only proofreading fixes are allowed:
 // consistent em dashes, "real-world" hyphenated, title-case button labels. Don't rewrite sentences.
+// Exception: copy the client wrote in docs/CarePath_Website_Developer_Checklist.docx (plan 09) overrides this.
 
 export const hero = {
+  // Client checklist #4 (2026-11-09). Was: "Care plans don’t fail because they’re wrong. They fail because no system
+  // ensures they happen after discharge."
   eyebrow:
-    'Care plans don’t fail because they’re wrong. They fail because no system ensures they happen after discharge.',
+    'CarePath turns prescribed care into daily actions patients can follow and record, giving care teams visibility into follow-through between visits.',
   title: 'Execution is assumed. CarePath makes it reliable.',
-  primaryCta: { label: 'See How It Works', to: '/how-it-works' },
-  secondaryCta: { label: 'Let’s talk', to: '/contact' },
+  // Client checklist #8: primary buttons say "Discuss a Pilot" and go to the contact form
+  primaryCta: { label: 'Discuss a Pilot', to: '/contact' },
+  secondaryCta: { label: 'See How It Works', to: '/how-it-works' },
   image: {
     src: heroLarge,
     srcSet: `${heroSmall} 800w, ${heroLarge} 1920w`,
@@ -63,7 +66,7 @@ export const statement = {
 // translate into real-world action." / "We don't replace existing systems. We make them work."
 // Mirrors the problem section: a faded/solid contrast headline, then an aligned row of points.
 export const positioning = {
-  title: ['Not monitoring.', 'Execution infrastructure.'],
+  title: ['Not monitoring.', 'Execution.'],
   points: [
     {
       title: 'Beyond discharge',
@@ -98,7 +101,7 @@ export const partnerCta = {
   eyebrow: 'For health systems',
   title: 'Rethinking what actually happens after discharge?',
   body: 'We are currently partnering with select health systems to evaluate CarePath in real-world settings.',
-  cta: { label: 'Let’s talk', to: '/contact' },
+  cta: { label: 'Discuss a Pilot', to: '/contact' },
   emailLabel: 'Email us',
 }
 
@@ -166,7 +169,9 @@ export const notMonitoring = {
   carepath: {
     label: 'CarePath',
     lead: 'Makes sure the plan happens.',
-    body: 'Each care plan becomes a few simple steps a day, with a nurse watching for early signs of risk.',
+    // Client checklist #6: no wording that implies someone watches patients continuously. Was: "…a few simple steps
+    // a day, with a nurse watching for early signs of risk."
+    body: 'Each care plan becomes a few simple steps a day. Each participating organization defines who reviews patient activity and how follow-up is handled.',
     conclusion: 'The layer that makes monitoring worth having.',
   },
 }
@@ -175,7 +180,6 @@ export type Outcome = {
   icon: LucideIcon
   title: string
   body: string
-  stat?: string
 }
 
 export const outcomes: {
@@ -191,8 +195,9 @@ export const outcomes: {
   // "Nurse-governed workflows support patients without increasing inbox volume, visit burden, or clinician fatigue." ·
   // "The Cost of Inaction" / "$50B+ in annual readmission costs—and still no visibility into whether care plans are
   // being executed at home."
-  eyebrow: 'What changes',
-  title: 'Outcomes That Matter',
+  // Client checklist #7: benefits are intended, to be evaluated, not proven results. "$50B+" removed (no exact source).
+  eyebrow: 'Intended benefits',
+  title: 'What CarePath Aims to Change',
   cta: { label: 'See the outcomes', to: '/outcomes' },
   items: [
     {
@@ -203,18 +208,12 @@ export const outcomes: {
     {
       icon: TrendingDown,
       title: 'Fewer avoidable readmissions',
-      body: 'Care teams see problems early and step in before they turn into an ED visit or a readmission.',
+      body: 'Designed to help care teams see problems early, before they turn into an ED visit or a readmission.',
     },
     {
       icon: HeartHandshake,
       title: 'Less load on care teams',
-      body: 'Nurse-led follow-up supports patients without adding to inboxes, visit load or clinician fatigue.',
-    },
-    {
-      icon: TriangleAlert,
-      title: 'The cost of inaction',
-      stat: '$50B+',
-      body: 'spent on readmissions every year, with no way to see whether care plans are followed at home.',
+      body: 'Intended to support patients without adding to inboxes, visit load or clinician fatigue.',
     },
   ],
 }

@@ -6,12 +6,10 @@ import { Button } from '@/components/ui/button'
 import { outcomes } from '@/content/home'
 
 /**
- * Three outcome cards in a row, then the cost of inaction as a slim navy strip underneath
- * (it is the problem, not a fourth outcome) with a link to the Outcomes page. Tighter padding than other bands.
+ * Three intended-benefit cards in a row, then a link to the Outcomes page. Tighter padding than other bands.
+ * (The "$50B+" cost strip was removed per client checklist #7.)
  */
 export function OutcomesSection() {
-  const cost = outcomes.items.find((item) => item.stat)
-  const results = outcomes.items.filter((item) => !item.stat)
   return (
     <Section className="pt-12 pb-12 sm:pt-14 sm:pb-14 lg:pt-16 lg:pb-16">
       <div className="container">
@@ -24,7 +22,7 @@ export function OutcomesSection() {
         </Reveal>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {results.map(({ icon: Icon, title, body }, i) => (
+          {outcomes.items.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 150}>
               <div className="h-full rounded-2xl bg-card p-6 shadow-sm ring-1 ring-primary/10 sm:p-7">
                 <div className="flex items-center gap-4">
@@ -43,39 +41,14 @@ export function OutcomesSection() {
           ))}
         </div>
 
-        {cost && (
-          <Reveal delay={450} className="mt-6">
-            <div className="flex flex-col gap-5 rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl shadow-primary/20 sm:p-8 md:flex-row md:items-center md:gap-10">
-              <div className="flex shrink-0 items-center gap-4">
-                <span className="grid size-12 place-items-center rounded-xl bg-primary-foreground/10 text-highlight">
-                  <cost.icon className="size-6" aria-hidden />
-                </span>
-                <div>
-                  <p className="font-heading text-xs font-bold tracking-[0.2em] text-highlight uppercase">
-                    {cost.title}
-                  </p>
-                  <p className="mt-1 font-heading text-4xl leading-none font-bold tracking-tight sm:text-5xl">
-                    {cost.stat}
-                  </p>
-                </div>
-              </div>
-              <p className="max-w-lg flex-1 font-heading text-base leading-relaxed font-medium text-pretty text-primary-foreground/80 md:border-l md:border-primary-foreground/15 md:pl-10">
-                {cost.body}
-              </p>
-              <Button
-                asChild
-                variant="inverse"
-                size="lg"
-                className="self-start md:ml-auto md:self-center"
-              >
-                <Link to={outcomes.cta.to}>
-                  {outcomes.cta.label}
-                  <ArrowRight />
-                </Link>
-              </Button>
-            </div>
-          </Reveal>
-        )}
+        <Reveal delay={450} className="mt-10 text-center">
+          <Button asChild variant="outline" size="lg">
+            <Link to={outcomes.cta.to}>
+              {outcomes.cta.label}
+              <ArrowRight />
+            </Link>
+          </Button>
+        </Reveal>
       </div>
     </Section>
   )
