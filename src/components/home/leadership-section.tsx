@@ -19,7 +19,7 @@ import { leadership, type Leader } from '@/content/home'
 function LeaderCard({ leader }: { leader: Leader }) {
   return (
     <Sheet>
-      <div className="grid h-full overflow-hidden rounded-2xl bg-secondary sm:grid-cols-5">
+      <div className="grid h-full overflow-hidden rounded-2xl bg-card sm:grid-cols-5">
         <div className="group relative overflow-hidden sm:col-span-2">
           <img
             src={leader.photo}
@@ -92,7 +92,7 @@ function LeaderCard({ leader }: { leader: Leader }) {
 
 export function LeadershipSection() {
   return (
-    <Section className="pt-12 sm:pt-14 lg:pt-16">
+    <Section tone="tint" className="pt-12 sm:pt-14 lg:pt-16">
       <div className="container">
         <Reveal>
           <SectionHeading

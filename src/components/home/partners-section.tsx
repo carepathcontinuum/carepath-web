@@ -11,10 +11,7 @@ import { partners } from '@/content/home'
 export function PartnersSection() {
   const { patients, organizations } = partners
   return (
-    <Section
-      tone="tint"
-      className="pt-12 pb-12 sm:pt-14 sm:pb-14 lg:pt-16 lg:pb-16"
-    >
+    <Section className="pt-12 pb-12 sm:pt-14 sm:pb-14 lg:pt-16 lg:pb-16">
       <div className="container">
         <Reveal className="mx-auto max-w-3xl text-center">
           <SectionHeading

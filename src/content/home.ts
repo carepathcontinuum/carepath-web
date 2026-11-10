@@ -274,3 +274,40 @@ export const partners = {
     ] satisfies { icon: LucideIcon; name: string; detail: string }[],
   },
 }
+
+// Client checklist #5 (2026-11-10): heading and phase text are the client's own words. Phases 2 and 3 must read as
+// planned, never as active in the initial pilot.
+export const pilot = {
+  eyebrow: 'Pilot phases',
+  title: [
+    'Start with a focused pilot.',
+    'Build toward connected care execution.',
+  ],
+  phases: [
+    {
+      label: 'Phase 1',
+      status: 'Initial pilot',
+      planned: false,
+      body: 'Daily task completion using the latest discharge instructions, nurse visibility, and a 30-day summary.',
+      note: 'Vitals capture and automated clinical escalation remain off.',
+    },
+    {
+      label: 'Phase 2',
+      status: 'Planned expansion',
+      planned: true,
+      body: 'Add measurements, trends, and clinician-approved escalation workflows after validation.',
+    },
+    {
+      label: 'Phase 3',
+      status: 'Planned expansion',
+      planned: true,
+      body: 'Connect with health system technology and workflows, then expand across patient populations and facilities.',
+    },
+  ] satisfies {
+    label: string
+    status: string
+    planned: boolean
+    body: string
+    note?: string
+  }[],
+}
