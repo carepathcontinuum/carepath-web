@@ -19,12 +19,15 @@ export const intro = {
   },
 }
 
+// Client checklist #6 (2026-11-10): no wording that implies someone watches patients continuously, and nothing
+// implying escalation is live (pilot Phase 1 has it off; Phase 2 adds clinician-approved escalation after validation).
 export const pillars = [
   {
-    title: 'Nurse-Led Oversight',
+    // Was "Nurse-Led Oversight": "…nurse-led clinical oversight, ensuring standardized monitoring, timely assessment…"
+    title: 'Nurse-Led Governance',
     /** Phrase inside `body` picked out in Montserrat so the eye catches the idea first */
-    key: 'nurse-led clinical oversight',
-    body: 'CarePath operates under nurse-led clinical oversight, ensuring standardized monitoring, timely assessment, and accountable decision-making between visits.',
+    key: 'who reviews patient activity',
+    body: 'CarePath is built around nurse-led clinical governance. Each participating organization defines who reviews patient activity and how follow-up is handled.',
   },
   {
     title: 'Standardized Clinical Pathways',
@@ -32,13 +35,20 @@ export const pillars = [
     body: 'Each patient is supported through defined care pathways aligned to diagnosis and risk, reducing variation while supporting consistent, evidence-based follow-up.',
   },
   {
-    title: 'Clear Escalation & Accountability',
-    key: 'escalated according to protocol',
-    body: 'Clinical signals are reviewed and escalated according to protocol, ensuring the right issues reach the right clinician at the right time.',
+    // Was "Clear Escalation & Accountability": "Clinical signals are reviewed and escalated according to protocol…"
+    title: 'Clear Follow-Up & Accountability',
+    key: 'existing protocols',
+    body: 'Patient activity is reviewed on the schedule each organization sets, and follow-up runs through its existing protocols. Clinician-approved escalation workflows are planned after validation.',
   },
 ]
 
 export const flow = {
-  label: 'How a signal moves',
-  steps: ['Signal', 'Nurse review', 'Escalation', 'Right clinician'],
+  // Was "How a signal moves": Signal → Nurse review → Escalation → Right clinician
+  label: 'How follow-up works',
+  steps: [
+    'Patient activity',
+    'Care team review',
+    'Follow-up',
+    'Right clinician',
+  ],
 }

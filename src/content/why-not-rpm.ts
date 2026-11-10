@@ -44,7 +44,7 @@ export const difference = {
     points: [
       'Operationalizes physician-directed care plans',
       'Guides execution between visits',
-      'Escalates when care plans break',
+      'Shows care teams when care plans slip', // checklist #6; was 'Escalates when care plans break'
     ],
   },
 }

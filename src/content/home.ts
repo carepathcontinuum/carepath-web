@@ -94,7 +94,7 @@ export const positioning = {
     },
     {
       title: 'Patients at home',
-      body: 'Daily actions, check-ins, early signals',
+      body: 'Daily actions, check-ins, task completion', // checklist #6; was '…early signals'
     },
   ],
 }
@@ -251,7 +251,8 @@ export const partners = {
     icon: Building2,
     label: 'Care teams & organizations',
     title: 'Outcomes need visibility.',
-    body: 'See how every plan is going after discharge, with an early, governed flag when a patient starts to drift.',
+    // Checklist #6; was "…with an early, governed flag when a patient starts to drift."
+    body: 'See how every plan is going after discharge, and which patients are falling behind.',
     listIntro: 'Works with what you already have, across',
     // Name + detail, so every item is two lines. Originals: "Health systems & hospitals", "Health plans & payers",
     // "Accountable Care Organizations (ACOs)", "Medical groups & value-based care organizations",

@@ -27,6 +27,8 @@ export type Step = {
   image: { src: string; srcSet: string; alt: string }
 }
 
+// Client checklist #6 (2026-11-10): no wording that implies someone watches patients continuously, and nothing
+// implying escalation is live (pilot Phase 1 has it off; Phase 2 adds clinician-approved escalation after validation).
 export const steps: Step[] = [
   {
     id: 'activation',
@@ -37,7 +39,7 @@ export const steps: Step[] = [
       'guided daily actions',
       'medication reminders',
       'micro-learning',
-      'self-monitoring prompts',
+      'appointment reminders', // was 'self-monitoring prompts' (vitals capture is off in the pilot)
     ],
     image: {
       src: activationLarge,
@@ -63,14 +65,16 @@ export const steps: Step[] = [
     },
   },
   {
-    id: 'risk-detection',
-    title: 'Early Risk Detection',
-    lead: 'Subtle signs of deterioration often appear days before a clinical crisis.',
-    label: 'CarePath identifies early warning signals such as:',
+    // Was "Early Risk Detection": "CarePath identifies early warning signals such as: symptom changes, medication
+    // gaps, diet or behavioral deviation"
+    id: 'visibility',
+    title: 'Missed-Task Visibility',
+    lead: 'Missed tasks often show a care plan slipping days before a clinical crisis.',
+    label: 'Care teams can see:',
     points: [
-      'symptom changes',
-      'medication gaps',
-      'diet or behavioral deviation',
+      'missed medications',
+      'skipped care tasks',
+      'patients falling behind their plan',
     ],
     image: {
       src: riskLarge,
@@ -79,13 +83,15 @@ export const steps: Step[] = [
     },
   },
   {
-    id: 'escalation',
-    title: 'Nurse-Governed Escalation',
-    lead: 'When risks appear, CarePath enables structured clinical escalation to care teams before deterioration progresses.',
-    label: 'This ensures:',
+    // Was "Nurse-Governed Escalation": "When risks appear, CarePath enables structured clinical escalation…" / "This
+    // ensures: earlier intervention, reduced avoidable utilization, safer patient recovery"
+    id: 'follow-up',
+    title: 'Care Team Follow-Up',
+    lead: 'Each participating organization defines who reviews patient activity and how follow-up is handled. Clinician-approved escalation workflows are planned after validation.',
+    label: 'This is designed to support:',
     points: [
-      'earlier intervention',
-      'reduced avoidable utilization',
+      'earlier follow-up',
+      'fewer avoidable ED visits and readmissions',
       'safer patient recovery',
     ],
     image: {
