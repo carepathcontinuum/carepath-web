@@ -15,6 +15,10 @@ import deannaBoate from '@/assets/images/deanna-boate.webp'
 import heroLarge from '@/assets/images/hero-1920.webp'
 import heroSmall from '@/assets/images/hero-800.webp'
 import katherineOwen from '@/assets/images/katherine-owen.webp'
+import productExecutive from '@/assets/images/product-executive-1600.webp'
+import productNurse from '@/assets/images/product-nurse-1600.webp'
+import productPatient from '@/assets/images/product-patient-600.webp'
+import productSummary from '@/assets/images/product-summary-1600.webp'
 
 // Copy is from the live site (docs/research/carepath-crawl/home.txt). Only proofreading fixes are allowed:
 // consistent em dashes, "real-world" hyphenated, title-case button labels. Don't rewrite sentences.
@@ -310,4 +314,39 @@ export const pilot = {
     body: string
     note?: string
   }[],
+}
+
+// Client checklist #1 and #2 (2026-11-10): four coordinated views, labelled as an illustrative prototype.
+// Mock screens built in the CarePath style from the app's real pages (patient plan, nurse dashboard, demo-mode
+// 30-day summary), with fictional patients. Sources: scratchpad mocks, not the live app.
+export const product = {
+  eyebrow: 'Illustrative product prototype',
+  title: ['One plan, every view.', 'Patient, nurse and leadership.'],
+  note: 'Fictional patient data.',
+  patient: {
+    title: 'Patient: My Care Plan',
+    body: 'Today’s tasks from the latest discharge instructions, marked done as they happen.',
+    image: productPatient,
+    alt: 'CarePath patient view: today’s care plan with three of five tasks marked done',
+  },
+  screens: [
+    {
+      title: 'Nurse dashboard',
+      body: 'Daily task completion for each patient, so the care team sees who is following the plan.',
+      image: productNurse,
+      alt: 'CarePath nurse dashboard: six patients with today’s task completion, last 7 days and status',
+    },
+    {
+      title: 'Executive dashboard',
+      body: 'Illustrative trends in follow-through across programs and patients.',
+      image: productExecutive,
+      alt: 'CarePath executive overview: 30-day task completion trend, patients by status and completion by program',
+    },
+    {
+      title: '30-day provider summary',
+      body: 'Each patient’s 30 days after discharge, ready to send to their provider.',
+      image: productSummary,
+      alt: 'CarePath 30-day provider summary for a fictional patient: completion by category, daily chart and care team notes',
+    },
+  ],
 }

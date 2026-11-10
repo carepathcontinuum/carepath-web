@@ -6,6 +6,7 @@ import { PartnerCtaSection } from '@/components/home/partner-cta-section'
 import { PartnersSection } from '@/components/home/partners-section'
 import { PilotSection } from '@/components/home/pilot-section'
 import { PositioningSection } from '@/components/home/positioning-section'
+import { ProductSection } from '@/components/home/product-section'
 import { ProblemSection } from '@/components/home/problem-section'
 import { StatementSection } from '@/components/home/statement-section'
 import { PageTitle } from '@/components/page-title'
@@ -15,14 +16,16 @@ export function HomePage() {
     <>
       <PageTitle />
       <HomeHero />
+      {/* Client checklist #3 order: opening → problem → product & workflow → pilot → leadership → contact */}
       <ProblemSection />
       <StatementSection />
+      <ProductSection />
       <PositioningSection />
-      <PilotSection />
-      <LeadershipSection />
       <NotMonitoringSection />
+      <PilotSection />
       <OutcomesSection />
       <PartnersSection />
+      <LeadershipSection />
       <PartnerCtaSection />
     </>
   )

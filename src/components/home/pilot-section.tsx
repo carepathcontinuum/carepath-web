@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils'
  */
 export function PilotSection() {
   return (
-    <Section className="py-12 sm:py-14 lg:py-16">
+    <Section tone="tint" className="py-12 sm:py-14 lg:py-16">
       <div className="container">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="mb-3 font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
@@ -57,7 +57,7 @@ export function PilotSection() {
                 className={cn(
                   'absolute top-1/2 left-0 grid size-8 -translate-y-1/2 place-items-center rounded-full md:top-0 md:left-1/2 md:-translate-x-1/2 md:translate-y-0',
                   phase.planned
-                    ? 'border-2 border-dashed border-primary/30 bg-background'
+                    ? 'border-2 border-dashed border-primary/30 bg-secondary'
                     : 'bg-primary shadow-lg ring-4 ring-primary/15',
                 )}
               >
