@@ -22,12 +22,12 @@ export const intro = {
 export const outcomes = [
   {
     // Was "Reduced Avoidable Readmissions": "Early risk detection and timely nurse escalation catch issues…"
-    title: 'Fewer Avoidable Readmissions',
+    title: 'Targeting Avoidable Readmissions', // checklist #7: an aim (was 'Fewer…')
     key: 'see missed tasks early',
     body: 'Designed to help care teams see missed tasks early, before they turn into ED visits or readmissions.',
   },
   {
-    title: 'Less Noise for Care Teams',
+    title: 'Easing Care Team Workload', // checklist #7: an aim (was 'Less Noise for Care Teams')
     // Was: "Only clinically relevant signals reach nurses, so teams can focus on patients who need them."
     key: 'which patients are falling behind',
     body: 'Intended to show care teams which patients are falling behind, without adding to inboxes.',

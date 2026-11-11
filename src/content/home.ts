@@ -19,6 +19,7 @@ import productExecutive from '@/assets/images/product-executive-1600.webp'
 import productNurse from '@/assets/images/product-nurse-1600.webp'
 import productPatient from '@/assets/images/product-patient-600.webp'
 import productSummary from '@/assets/images/product-summary-1600.webp'
+import { sources, type Source } from '@/content/sources'
 
 // Copy is from the live site (docs/research/carepath-crawl/home.txt). Only proofreading fixes are allowed:
 // consistent em dashes, "real-world" hyphenated, title-case button labels. Don't rewrite sentences.
@@ -56,6 +57,8 @@ export const problem = {
   ],
   assumption: 'We assume the rest happens.',
   punchline: 'It doesn’t.',
+  // Checklist #7: research behind "It doesn't" (post-discharge follow-up gaps and adverse events)
+  sources: [sources.jencks, sources.forster],
 }
 
 // Changed on request (2026-10-27) from the live site's "The system is not built for EXECUTION.":
@@ -191,6 +194,7 @@ export const outcomes: {
   title: string
   cta: { label: string; to: string }
   items: Outcome[]
+  cost: { label: string; value: string; text: string; sources: Source[] }
 } = {
   // Copy rewritten on request (plainer, shorter); originals: "Improved Continuity of Care" / "Care doesn’t end at
   // discharge—but execution often does. CarePath helps patients follow structured, daily actions at home, closing the
@@ -211,15 +215,23 @@ export const outcomes: {
     },
     {
       icon: TrendingDown,
-      title: 'Fewer avoidable readmissions',
+      title: 'Targeting avoidable readmissions', // checklist #7: an aim, not a result (was 'Fewer…')
       body: 'Designed to help care teams see problems early, before they turn into an ED visit or a readmission.',
     },
     {
       icon: HeartHandshake,
-      title: 'Less load on care teams',
+      title: 'Easing care team workload', // checklist #7: an aim, not a result (was 'Less load…')
       body: 'Intended to support patients without adding to inboxes, visit load or clinician fatigue.',
     },
   ],
+  // Checklist #7: restored from the live site's "The Cost of Inaction" now that an exact source supports it:
+  // $50.7B in 30-day readmission costs in 2013 (Strom et al., PLOS ONE 2017).
+  cost: {
+    label: 'The cost of inaction',
+    value: '$50B+',
+    text: 'in annual readmission costs, and still no visibility into whether care plans are being followed at home.',
+    sources: [sources.readmissionCost],
+  },
 }
 
 export const partners = {

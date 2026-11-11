@@ -1,13 +1,14 @@
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router'
 import { Reveal } from '@/components/reveal'
+import { Sources } from '@/components/sources'
 import { Section, SectionHeading } from '@/components/sections/section'
 import { Button } from '@/components/ui/button'
 import { outcomes } from '@/content/home'
 
 /**
  * Three intended-benefit cards in a row, then a link to the Outcomes page. Tighter padding than other bands.
- * (The "$50B+" cost strip was removed per client checklist #7.)
+ * Then the "$50B+" cost strip, restored with its source (client checklist #7).
  */
 export function OutcomesSection() {
   return (
@@ -40,6 +41,27 @@ export function OutcomesSection() {
             </Reveal>
           ))}
         </div>
+
+        {/* The cost of inaction: the one research figure here, with its source */}
+        <Reveal delay={300} className="mt-6">
+          <div className="flex flex-col gap-3 rounded-2xl bg-primary p-6 text-primary-foreground sm:flex-row sm:items-center sm:gap-6 sm:p-7">
+            <p className="font-heading text-xs font-bold tracking-[0.2em] text-highlight uppercase sm:w-36 sm:shrink-0">
+              {outcomes.cost.label}
+            </p>
+            <p className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">
+              {outcomes.cost.value}
+            </p>
+            <div>
+              <p className="font-heading text-[0.9375rem] leading-relaxed font-medium text-primary-foreground/85">
+                {outcomes.cost.text}
+              </p>
+              <Sources
+                items={outcomes.cost.sources}
+                className="mt-1.5 text-primary-foreground/60 [&_a:hover]:text-primary-foreground"
+              />
+            </div>
+          </div>
+        </Reveal>
 
         <Reveal delay={450} className="mt-10 text-center">
           <Button asChild variant="outline" size="lg">

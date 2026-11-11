@@ -1,5 +1,6 @@
 import { Check, Minus } from 'lucide-react'
 import { PartnerCtaSection } from '@/components/home/partner-cta-section'
+import { Sources } from '@/components/sources'
 import { KeyPhrase } from '@/components/key-phrase'
 import { PageTitle } from '@/components/page-title'
 import { Reveal } from '@/components/reveal'
@@ -127,6 +128,7 @@ export function WhyNotRpmPage() {
               {matters.body[1]}
             </span>
           </h2>
+          <Sources items={matters.sources} className="mt-6" />
         </Reveal>
       </section>
 

@@ -1,5 +1,6 @@
 import photoLarge from '@/assets/images/care-plan-activation-1600.webp'
 import photoSmall from '@/assets/images/care-plan-activation-800.webp'
+import { sources } from '@/content/sources'
 
 // Copy is from the live site (docs/research/carepath-crawl/why-carepath-isnt-rpm.txt). Only change: the subtitle's
 // em-dash became a comma ("execution—not monitoring"). Don't rewrite sentences.
@@ -61,4 +62,6 @@ export const matters = {
     'CarePath closes the execution gap',
     'RPM was never designed to solve.',
   ],
+  // Checklist #7: research behind "care plans fail after discharge"
+  sources: [sources.jencks, sources.forster, sources.redToolkit],
 }

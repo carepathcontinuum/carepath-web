@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
+import { Sources } from '@/components/sources'
 import { problem } from '@/content/home'
 
 /**
@@ -46,6 +47,7 @@ export function ProblemSection() {
               {problem.punchline}
             </span>
           </p>
+          <Sources items={problem.sources} className="mt-3" />
         </Reveal>
       </div>
     </section>

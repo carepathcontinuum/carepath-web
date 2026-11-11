@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
+import { Sources } from '@/components/sources'
 import { Section } from '@/components/sections/section'
 import { steps } from '@/content/how-it-works'
 import { cn } from '@/lib/utils'
@@ -38,6 +39,9 @@ export function StepsSection() {
                   <p className="mt-4 max-w-prose text-lg leading-relaxed text-pretty text-foreground/75 sm:text-xl">
                     {step.lead}
                   </p>
+                  {step.sources && (
+                    <Sources items={step.sources} className="mt-2" />
+                  )}
                   <p className="mt-8 font-heading text-xs font-bold tracking-[0.2em] text-primary/60 uppercase">
                     {step.label}
                   </p>

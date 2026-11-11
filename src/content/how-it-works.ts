@@ -6,6 +6,7 @@ import riskLarge from '@/assets/images/early-risk-detection-1080.webp'
 import riskSmall from '@/assets/images/early-risk-detection-800.webp'
 import escalationLarge from '@/assets/images/nurse-escalation-1600.webp'
 import escalationSmall from '@/assets/images/nurse-escalation-800.webp'
+import { sources, type Source } from '@/content/sources'
 
 // Copy is from the live site (docs/research/carepath-crawl/how-it-works.txt). Only fixes: the missing full stop
 // after "clinical crisis", and the "•" bullets turned into lists. Don't rewrite sentences.
@@ -25,6 +26,8 @@ export type Step = {
   label: string
   points: string[]
   image: { src: string; srcSet: string; alt: string }
+  /** Checklist #7: research behind a factual claim in the lead */
+  sources?: Source[]
 }
 
 // Client checklist #6 (2026-11-10): no wording that implies someone watches patients continuously, and nothing
@@ -69,7 +72,9 @@ export const steps: Step[] = [
     // gaps, diet or behavioral deviation"
     id: 'visibility',
     title: 'Missed-Task Visibility',
-    lead: 'Missed tasks often show a care plan slipping days before a clinical crisis.',
+    // Checklist #7: reworded to match its source (was "Missed tasks often show a care plan slipping days before…")
+    lead: 'Warning signs often appear days before a hospital admission, and missed medications are a common factor.',
+    sources: [sources.schiff],
     label: 'Care teams can see:',
     points: [
       'missed medications',
