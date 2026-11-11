@@ -57,7 +57,8 @@ export function OutcomesSection() {
               </p>
               <Sources
                 items={outcomes.cost.sources}
-                className="mt-1.5 text-primary-foreground/60 [&_a:hover]:text-primary-foreground"
+                tone="dark"
+                className="mt-2"
               />
             </div>
           </div>
