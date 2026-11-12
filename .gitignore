@@ -23,5 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# graphify: per-machine parse cache (rebuilt by `graphify update .`)
-graphify-out/cache/
+# Private: client docs and local graphify output (never commit; repo is public)
+docs/
+graphify-out/

@@ -17,7 +17,6 @@ A static rebuild and redesign of [carepathcontinuum.com](https://carepathcontinu
 ## Structure
 
 ```
-docs/                 decisions, research and plans (see docs/README.md)
 public/               static files served as-is
 src/
   main.tsx            entry: mounts the router
